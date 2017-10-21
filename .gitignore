@@ -3,5 +3,5 @@
 node_modules/
 .idea/
 dist/
-functions/
+functions/node_modules/
 
