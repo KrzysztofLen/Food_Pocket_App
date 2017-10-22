@@ -1,53 +1,52 @@
 #root {
-    .test_product {
-        .secondary_product {
-            color: darkgray;
-        }
-    }
+	.test_product {
+		.secondary_product {
+			color: darkgray;
+		}
+	}
 }
 
-
 .pl-mobile-dictionary {
-    &__container {
-        display: grid;
-        grid-template-columns: 40px 50px 1fr 50px 40px;
-        grid-template-rows: 25% 100px auto;
-    }
+	&__container {
+		display: grid;
+		grid-template-columns: 40px 50px 1fr 50px 40px;
+		grid-template-rows: 25% 100px auto;
+	}
 
-    &__form-container {
-        grid-column-end: 4;
-    }
+	&__form-container {
+		grid-column-end: 4;
+	}
 
-    &__danger-message {
-        grid-column-end: 4;
-    }
+	&__danger-message {
+		grid-column-end: 4;
+	}
 }
 
 .hide {
-    display: none;
+	display: none;
 }
 
 input[type=text], textarea {
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
-    outline: none;
-    margin: 5px 1px 3px 0px;
-    border: 1px solid #DDDDDD;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	margin: 5px 1px 3px 0px;
+	border: 1px solid #DDDDDD;
 }
 
 input[type=text]:focus, textarea:focus {
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    margin: 5px 1px 3px 0px;
-    border: 1px solid rgba(81, 203, 238, 1);
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	margin: 5px 1px 3px 0px;
+	border: 1px solid rgba(81, 203, 238, 1);
 }
 
 .has-danger {
-    input[type=text] {
-        outline: none;
-        box-shadow: 0 0 5px rgba(232, 52, 59, 1);
-        margin: 5px 1px 3px 0px;
-        border: 1px solid rgba(232, 52, 59, 1);
-    }
+	input[type=text] {
+		outline: none;
+		box-shadow: 0 0 5px rgba(232, 52, 59, 1);
+		margin: 5px 1px 3px 0px;
+		border: 1px solid rgba(232, 52, 59, 1);
+	}
 }
