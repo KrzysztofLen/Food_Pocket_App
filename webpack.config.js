@@ -76,12 +76,15 @@ module.exports = {
 			filename: '[name].bundle.css'
 		}),
 		new HtmlWebpackPlugin({
-			hash: true,
-			title: 'My Awesome application',
-			template: './index.html',
-			myPageHeader: 'Hello World',
-			inject: 'body',
-			filename: './index.html' // Relative to root of the application
+			template: 'src/index.html',
+			inject: 'body'
 		})
-	]
+	],
+	devServer: {
+		port: 8081,
+		contentBase: path.resolve(__dirname, 'src'),
+		historyApiFallback: true,
+		inline: true,
+		open: true
+	},
 };

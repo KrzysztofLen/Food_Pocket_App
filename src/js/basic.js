@@ -1,9 +1,12 @@
 /* global document */
 (function () {
+
 	const inputContainer = document.getElementsByClassName('pl-mobile-dictionary__input-container');
 	const input = document.getElementsByClassName('pl-mobile-dictionary__input');
 
-	const submitButton = $('#pl-mobile-dictionary__submit');
+	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
+	const inputButton = document.querySelector('#pl-mobile-dictionary__input');
+
 	const dangerMsg = $('.pl-mobile-dictionary__danger-message');
 
     // Initialize Firebase
@@ -16,21 +19,28 @@
 		messagingSenderId: '634027372852'
 	};
 
-	firebase.initializeApp(config);
+	// firebase.initializeApp(config);
 
 	function hideDangerMessage() {
 		dangerMsg.addClass('hide');
 	}
 
-	submitButton.click(e => {
+	submitButton.addEventListener('click', (e) => {
 		displayErrorMessage(e);
 	});
 
-	submitButton.keypress(e => {
-		if (e.keyCode === 13 || e.which === 13) {
+
+	const keyPressed = (e) => {
+
+		if(e.code === 'Enter') {
 			displayErrorMessage(e);
 		}
-	});
+		return;
+	}
+
+	submitButton.addEventListener('keypress', keyPressed);
+	inputButton.addEventListener('keypress', keyPressed);
+
 
 	function displayErrorMessage(event) {
 		const inputValue = $('#pl-mobile-dictionary__input').val();
@@ -45,28 +55,28 @@
 	}
 
     // Added to DB
-	const database = firebase.database();
+	// const database = firebase.database();
 
-	function writeUserData(userId, name, email) {
-		database.ref('/' + userId).set({
-			username: name,
-			email
-		});
-	}
+	// function writeUserData(userId, name, email) {
+	// 	database.ref('/' + userId).set({
+	// 		username: name,
+	// 		email
+	// 	});
+	// }
 
-	writeUserData(2, 'Maciej', 'maciej@gmail.com');
+	// writeUserData(2, 'Maciej', 'maciej@gmail.com');
 
     // Read from DB
-	const ref = firebase.database().ref();
+	// const ref = firebase.database().ref();
 
-	ref.on('child_added', data => {
-		const user = data.val();
-		console.log(user);
-		console.log('name: ' + user.email);
-		console.log('age: ' + user.username);
-	}, error => {
-		console.log('Error: ' + error.code);
-	});
+	// ref.on('child_added', data => {
+	// 	const user = data.val();
+	// 	console.log(user);
+	// 	console.log('name: ' + user.email);
+	// 	console.log('age: ' + user.username);
+	// }, error => {
+	// 	console.log('Error: ' + error.code);
+	// });
 
 	hideDangerMessage();
 })();
