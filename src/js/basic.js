@@ -7,7 +7,7 @@
 	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
 	const inputButton = document.querySelector('#pl-mobile-dictionary__input');
 
-	const dangerMsg = $('.pl-mobile-dictionary__danger-message');
+	const dangerMsg = $('.pl-mobile-dictionary__error-message-container');
 
     // Initialize Firebase
 	const config = {

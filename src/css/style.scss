@@ -1,3 +1,7 @@
+@import "Base/_colors.scss";
+
+
+
 #root {
 	.test_product {
 		.secondary_product {
@@ -9,16 +13,25 @@
 .pl-mobile-dictionary {
 	&__container {
 		display: grid;
-		grid-template-columns: 40px 50px 1fr 50px 40px;
-		grid-template-rows: 25% 100px auto;
+		grid-template-columns: 20px 0 2fr 0 20px;
+		grid-template-rows: 25% 100% auto;
 	}
 
 	&__form-container {
 		grid-column-end: 4;
 	}
 
-	&__danger-message {
+	&__error-message-container {
 		grid-column-end: 4;
+
+		&--message {
+			font-size: 1.2rem;
+			line-height: 1.2rem;
+
+			strong {
+				color: $base-purple;
+			}
+		}
 	}
 }
 
@@ -48,5 +61,12 @@ input[type=text]:focus, textarea:focus {
 		box-shadow: 0 0 5px rgba(232, 52, 59, 1);
 		margin: 5px 1px 3px 0px;
 		border: 1px solid rgba(232, 52, 59, 1);
+	}
+}
+
+
+.pl-mobile-dictionary {
+	&__input-container {
+		margin: 20px 0;
 	}
 }
