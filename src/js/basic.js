@@ -5,7 +5,8 @@
 	const input = document.getElementsByClassName('pl-mobile-dictionary__input');
 
 	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
-	const inputButton = document.querySelector('#pl-mobile-dictionary__input');
+	const inputButton = document.querySelector('#pl-mobile-dictionary__input'),
+		  form = document.querySelector('form');
 
 	const dangerMsg = $('.pl-mobile-dictionary__error-message-container');
 
@@ -29,7 +30,6 @@
 		displayErrorMessage(e);
 	});
 
-
 	const keyPressed = (e) => {
 
 		if(e.code === 'Enter') {
@@ -38,8 +38,8 @@
 		return;
 	}
 
-	submitButton.addEventListener('keypress', keyPressed);
-	inputButton.addEventListener('keypress', keyPressed);
+	// submitButton.addEventListener('keypress', keyPressed);
+	// inputButton.addEventListener('keypress', keyPressed);
 
 
 	function displayErrorMessage(event) {
@@ -51,8 +51,45 @@
 			inputContainer[0].classList.add('has-danger');
 			input[0].classList.add('form-control-danger');
 			event.preventDefault();
+		} else {
+			console.log('[Message send]');
 		}
 	}
+
+	function sendData() {
+		fetch('https://english-56ed3.firebaseio.com/english.json', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			},
+			body: JSON.stringify({
+				id: new Date().toISOString(),
+				term: inputWord.value
+			})
+		})
+			.then(function (res) {
+				console.log('[Send data]', res);
+			});
+	}
+
+	form.addEventListener('submit', function (event) {
+		event.preventDefault();
+		keyPressed;
+
+		if('serviceWorker' in navigator && 'SyncManager' in window) {
+			navigator.serviceWorker.ready
+				.then(function (sw) {
+					const english = {
+						id: new Date().toISOString(),
+						term: inputWord.value
+					};
+					sw.sync.register('sync-new-english');
+				});
+		} else {
+			sendData();
+		}
+	});
 
     // Added to DB
 	// const database = firebase.database();

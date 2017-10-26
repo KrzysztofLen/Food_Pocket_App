@@ -7,4 +7,5 @@ import './css/tester.scss';
 
 import './js/plugins';
 import './js/basic';
+import './app';
 
