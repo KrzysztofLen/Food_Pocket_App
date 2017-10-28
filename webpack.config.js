@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: './src/main.js',
 	output: {
-		path: path.resolve(__dirname, './dist'),
+		path: path.resolve(__dirname, 'src/dist'),
 		filename: 'main.bundle.js'
 	},
 	watch: true,
@@ -72,11 +72,11 @@ module.exports = {
 		new ExtractTextPlugin({
 			filename: '[name].bundle.css',
 			allChunks: true,
-		}),
-		new HtmlWebpackPlugin({
-			template: 'src/index.html',
-			inject: 'body'
 		})
+		// new HtmlWebpackPlugin({
+		// 	template: 'src/index.html',
+		// 	inject: 'body'
+		// })
 	],
 	devServer: {
 		port: 8081,

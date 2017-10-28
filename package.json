@@ -6,7 +6,7 @@
 		"lint:scss": "stylelint \"css/**/*.scss\"",
 		"xo": "xo --fix",
 		"sass": "node-sass --output-style compressed src/css/main.scss -o dist/",
-		"clean": "rimraf dist"
+		"clean": "rimraf src/dist"
 	},
 	"author": "Krzysztof Len",
 	"license": "ISC",

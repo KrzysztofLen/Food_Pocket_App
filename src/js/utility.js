@@ -25,3 +25,13 @@ function deleteItemFromData(st, id) {
 			console.log('%c [IndexDB] Item deleted!...', 'color: #bada55');
 		});
 }
+
+function writeData(st, data) {
+	return dbPromise
+		.then(function(db) {
+			var tx = db.transaction(st, 'readwrite');
+			var store = tx.objectStore(st);
+			store.put(data);
+			return tx.complete;
+		});
+}

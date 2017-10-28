@@ -1,4 +1,5 @@
 /* global document */
+// import './utility.js';
 
 (function () {
 
@@ -80,21 +81,21 @@
 			});
 	}
 
-	function writeData(st, data) {
-		return dbPromise
-			.then(function(db) {
-				var tx = db.transaction(st, 'readwrite');
-				var store = tx.objectStore(st);
-				store.put(data);
-				return tx.complete;
-			});
-	}
+	// function writeData(st, data) {
+	// 	return dbPromise
+	// 		.then(function(db) {
+	// 			var tx = db.transaction(st, 'readwrite');
+	// 			var store = tx.objectStore(st);
+	// 			store.put(data);
+	// 			return tx.complete;
+	// 		});
+	// }
 
-	var dbPromise = idb.open('data-store', 1, function (db) {
-		if (!db.objectStoreNames.contains('sync-data')) {
-			db.createObjectStore('sync-data', {keyPath: 'id'});
-		}
-	});
+	// var dbPromise = idb.open('data-store', 1, function (db) {
+	// 	if (!db.objectStoreNames.contains('sync-data')) {
+	// 		db.createObjectStore('sync-data', {keyPath: 'id'});
+	// 	}
+	// });
 
 	form.addEventListener('submit', function (event) {
 		event.preventDefault();
