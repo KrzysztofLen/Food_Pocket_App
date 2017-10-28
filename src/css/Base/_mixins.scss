@@ -11,3 +11,30 @@
 	font-size: ($sizeValue * 10) + px;
 	font-size: $sizeValue + rem;
 }
+
+// Font Smoothing
+@mixin smooth {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// Pseudoelements
+@mixin pseudo($display: block, $position: absolute, $content: ''){
+	content: $content;
+	display: $display;
+	position: $position;
+}
+
+// Breakpoints
+$breakpoints: (
+	'tablet': ( min-width:  768px ),
+	'laptop': ( min-width:  1220px ),
+	'desktop': ( min-width:  1600px )
+);
+@mixin media($name) {
+	@if map-has-key($breakpoints, $name) {
+		@media #{inspect(map-get($breakpoints, $name))} {
+			@content;
+		}
+	}
+}

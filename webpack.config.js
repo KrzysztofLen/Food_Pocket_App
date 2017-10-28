@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -10,6 +10,7 @@ module.exports = {
 		filename: 'main.bundle.js'
 	},
 	watch: true,
+	target: "web",
 	module: {
 		rules: [
 			{
@@ -24,7 +25,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: ['css-hot-loader'].concat(ExtractTextWebpackPlugin.extract({
+				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: [{
 						loader: 'css-loader',
@@ -36,7 +37,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				use: ExtractTextWebpackPlugin.extract({
+				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: [{
 						loader: 'css-loader', // Translates CSS into CommonJS
@@ -68,12 +69,9 @@ module.exports = {
 			name: 'vendor',
 			filename: 'vendor.bundle.js'
 		}),
-        // New webpack.optimize.UglifyJsPlugin({
-        //     beautify: true,
-        //     comments: false
-        // }),
-		new ExtractTextWebpackPlugin({
-			filename: '[name].bundle.css'
+		new ExtractTextPlugin({
+			filename: '[name].bundle.css',
+			allChunks: true,
 		}),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',

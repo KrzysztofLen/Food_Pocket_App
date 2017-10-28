@@ -1,4 +1,5 @@
 /* global document */
+
 (function () {
 
 	const inputContainer = document.getElementsByClassName('pl-mobile-dictionary__input-container');
@@ -6,9 +7,9 @@
 
 	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
 	const inputButton = document.querySelector('#pl-mobile-dictionary__input'),
-		  form = document.querySelector('form');
-
-	const dangerMsg = $('.pl-mobile-dictionary__error-message-container');
+		  inputButton1 = document.querySelector('#pl-mobile-dictionary__input1'),
+		  form = document.querySelector('form'),
+		  error = document.querySelector('.pl-mobile-dictionary__error-message-container');
 
     // Initialize Firebase
 	const config = {
@@ -23,7 +24,11 @@
 	// firebase.initializeApp(config);
 
 	function hideDangerMessage() {
-		dangerMsg.addClass('hide');
+		error.classList.add('hide');
+	}
+
+	function showDangerMessage() {
+		error.classList.remove('hide');
 	}
 
 	submitButton.addEventListener('click', (e) => {
@@ -38,22 +43,22 @@
 		return;
 	}
 
-	// submitButton.addEventListener('keypress', keyPressed);
-	// inputButton.addEventListener('keypress', keyPressed);
-
-
 	function displayErrorMessage(event) {
-		const inputValue = $('#pl-mobile-dictionary__input').val();
+		const inputValue = inputButton.value;
 		const regexp = new RegExp('^([a-z]{2,})$');
 
 		if ((inputValue === '') || (!regexp.test(inputValue))) {
-			dangerMsg.removeClass('hide');
+			showDangerMessage();
 			inputContainer[0].classList.add('has-danger');
 			input[0].classList.add('form-control-danger');
 			event.preventDefault();
 		} else {
 			console.log('[Message send]');
 		}
+	}
+
+	function updateUI() {
+		// Here will be code to update UI
 	}
 
 	function sendData() {
@@ -65,13 +70,31 @@
 			},
 			body: JSON.stringify({
 				id: new Date().toISOString(),
-				term: inputWord.value
+				term: inputButton.value,
+				term1: inputButton1.value
 			})
 		})
 			.then(function (res) {
 				console.log('[Send data]', res);
+				updateUI();
 			});
 	}
+
+	function writeData(st, data) {
+		return dbPromise
+			.then(function(db) {
+				var tx = db.transaction(st, 'readwrite');
+				var store = tx.objectStore(st);
+				store.put(data);
+				return tx.complete;
+			});
+	}
+
+	var dbPromise = idb.open('data-store', 1, function (db) {
+		if (!db.objectStoreNames.contains('sync-data')) {
+			db.createObjectStore('sync-data', {keyPath: 'id'});
+		}
+	});
 
 	form.addEventListener('submit', function (event) {
 		event.preventDefault();
@@ -80,13 +103,26 @@
 		if('serviceWorker' in navigator && 'SyncManager' in window) {
 			navigator.serviceWorker.ready
 				.then(function (sw) {
+					// Object with value from Input's
 					const english = {
 						id: new Date().toISOString(),
-						term: inputWord.value
+						term: inputButton.value,
+						term1: inputButton1.value
 					};
-					sw.sync.register('sync-new-english');
+					// Save Data in IndexCB
+					writeData('sync-data', english)
+						.then(() => {
+							return sw.sync.register('sync-new-english');
+						})
+						.then(() => {
+							console.log('%c [From IndexDB]: Successfully saved data', 'color: #bada55');
+						})
+						.catch(function(err) {
+							console.log('%c [Error from IndexDB]: ', 'color: #FF0006', err);
+						});
 				});
 		} else {
+			// Without background-sync
 			sendData();
 		}
 	});
