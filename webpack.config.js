@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
 	entry: './src/main.js',
@@ -10,7 +11,7 @@ module.exports = {
 		filename: 'main.bundle.js'
 	},
 	watch: true,
-	target: "web",
+	target: 'web',
 	module: {
 		rules: [
 			{
@@ -52,15 +53,34 @@ module.exports = {
 				})
 			},
 			{
-				test: /\.(png|jpg|gif)$/,
-				use: [
-					{
-						loader: 'url-loader',
-						options: {
-							limit: 8192
-						}
-					}
-				]
+				test: /\.(jpe?g|png|gif|svg)$/i,
+				loaders: ['file-loader?context=src/assets/icons/[path][name].[ext]', {  // images loader
+					loader: 'image-webpack-loader',
+					query: {
+						mozjpeg: {
+							progressive: true,
+						},
+						gifsicle: {
+							interlaced: false,
+						},
+						optipng: {
+							optimizationLevel: 4,
+						},
+						pngquant: {
+							quality: '75-90',
+							speed: 3,
+						},
+					},
+				}],
+				exclude: /node_modules/,
+				include: __dirname,
+			},
+			{
+				test: /\.svg/,
+				use: {
+					loader: 'svg-url-loader',
+					options: {}
+				}
 			}
 		]
 	},
@@ -71,12 +91,13 @@ module.exports = {
 		}),
 		new ExtractTextPlugin({
 			filename: '[name].bundle.css',
-			allChunks: true,
-		})
-		// new HtmlWebpackPlugin({
-		// 	template: 'src/index.html',
-		// 	inject: 'body'
-		// })
+			allChunks: true
+		}),
+		new HtmlWebpackPlugin({
+			template: 'src/index.html',
+			inject: 'body'
+		}),
+		new DashboardPlugin()
 	],
 	devServer: {
 		port: 8081,
@@ -84,5 +105,5 @@ module.exports = {
 		historyApiFallback: true,
 		inline: true,
 		open: true
-	},
+	}
 };

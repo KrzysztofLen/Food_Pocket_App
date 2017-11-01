@@ -1,14 +1,13 @@
 /* global document */
-// import './utility.js';
 
 (function () {
-
 	const inputContainer = document.getElementsByClassName('pl-mobile-dictionary__input-container');
 	const input = document.getElementsByClassName('pl-mobile-dictionary__input');
 
 	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
-	const inputButton = document.querySelector('#pl-mobile-dictionary__input'),
-		  inputButton1 = document.querySelector('#pl-mobile-dictionary__input1'),
+
+	const inputFirst = document.querySelector('#pl-mobile-dictionary__input-first'),
+		  inputSecond = document.querySelector('#pl-mobile-dictionary__input-second'),
 		  form = document.querySelector('form'),
 		  error = document.querySelector('.pl-mobile-dictionary__error-message-container');
 
@@ -22,8 +21,6 @@
 		messagingSenderId: '634027372852'
 	};
 
-	// firebase.initializeApp(config);
-
 	function hideDangerMessage() {
 		error.classList.add('hide');
 	}
@@ -32,20 +29,18 @@
 		error.classList.remove('hide');
 	}
 
-	submitButton.addEventListener('click', (e) => {
+	submitButton.addEventListener('click', e => {
 		displayErrorMessage(e);
 	});
 
-	const keyPressed = (e) => {
-
-		if(e.code === 'Enter') {
+	const keyPressed = e => {
+		if (e.code === 'Enter') {
 			displayErrorMessage(e);
 		}
-		return;
-	}
+	};
 
 	function displayErrorMessage(event) {
-		const inputValue = inputButton.value;
+		const inputValue = inputFirst.value;
 		const regexp = new RegExp('^([a-z]{2,})$');
 
 		if ((inputValue === '') || (!regexp.test(inputValue))) {
@@ -71,17 +66,17 @@
 			},
 			body: JSON.stringify({
 				id: new Date().toISOString(),
-				term: inputButton.value,
-				term1: inputButton1.value
+				term: inputFirst.value,
+				term1: inputSecond.value
 			})
 		})
-			.then(function (res) {
+			.then(res => {
 				console.log('[Send data]', res);
 				updateUI();
 			});
 	}
 
-	// function writeData(st, data) {
+	// Function writeData(st, data) {
 	// 	return dbPromise
 	// 		.then(function(db) {
 	// 			var tx = db.transaction(st, 'readwrite');
@@ -97,18 +92,18 @@
 	// 	}
 	// });
 
-	form.addEventListener('submit', function (event) {
+	form.addEventListener('submit', event => {
 		event.preventDefault();
 		keyPressed;
 
-		if('serviceWorker' in navigator && 'SyncManager' in window) {
+		if ('serviceWorker' in navigator && 'SyncManager' in window) {
 			navigator.serviceWorker.ready
-				.then(function (sw) {
+				.then(sw => {
 					// Object with value from Input's
 					const english = {
 						id: new Date().toISOString(),
-						term: inputButton.value,
-						term1: inputButton1.value
+						term: inputFirst.value,
+						term1: inputSecond.value
 					};
 					// Save Data in IndexCB
 					writeData('sync-data', english)
@@ -118,9 +113,10 @@
 						.then(() => {
 							console.log('%c [From IndexDB]: Successfully saved data', 'color: #bada55');
 						})
-						.catch(function(err) {
+						.catch(err => {
 							console.log('%c [Error from IndexDB]: ', 'color: #FF0006', err);
 						});
+					form.reset();
 				});
 		} else {
 			// Without background-sync
