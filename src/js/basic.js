@@ -124,29 +124,6 @@
 		}
 	});
 
-    // Added to DB
-	// const database = firebase.database();
-
-	// function writeUserData(userId, name, email) {
-	// 	database.ref('/' + userId).set({
-	// 		username: name,
-	// 		email
-	// 	});
-	// }
-
-	// writeUserData(2, 'Maciej', 'maciej@gmail.com');
-
-    // Read from DB
-	// const ref = firebase.database().ref();
-
-	// ref.on('child_added', data => {
-	// 	const user = data.val();
-	// 	console.log(user);
-	// 	console.log('name: ' + user.email);
-	// 	console.log('age: ' + user.username);
-	// }, error => {
-	// 	console.log('Error: ' + error.code);
-	// });
 
 	hideDangerMessage();
 })();
