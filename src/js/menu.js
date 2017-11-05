@@ -75,7 +75,7 @@
 
 const myTabs = tabs({
 	el: '#tabs',
-	tabNavigationLinks: '.pl-mobile-dictionary__nav__menu__link',
+	tabNavigationLinks: '.pl-mobile-dictionary__nav__menu__list__link',
 	tabContentContainers: '.c-tab'
 });
 
