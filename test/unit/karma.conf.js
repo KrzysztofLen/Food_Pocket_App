@@ -5,7 +5,7 @@ module.exports = function (config) {
 		frameworks: ['mocha', 'sinon-chai', 'fixture'],
 		files: [
 			// Matchig all js files in all subfolders
-			'../../src/js/menu.js',
+			'../../src/js/*.js',
 			// Matching all specs files
 			'./specs/*.spec.js',
 			// Matching example files
@@ -17,6 +17,7 @@ module.exports = function (config) {
 			'./node_modules',
 			'../../src/js/vendor/*.js',
 			'../../src/js/chunks/*.js',
+			'../../src/js/utility.js',
 			'../../public/src/index.js',
 			'../../public/src/js/promise.js',
 			'../../public/src/js/fetch.js',
