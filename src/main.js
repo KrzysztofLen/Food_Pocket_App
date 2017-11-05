@@ -6,5 +6,4 @@ import '../src/css/main.scss';
 import './js/plugins';
 import './js/basic';
 import './js/menu';
-import './js/dictionary';
 import './app';
