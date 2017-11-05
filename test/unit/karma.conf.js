@@ -17,7 +17,7 @@ module.exports = function (config) {
 			'./node_modules',
 			'../../src/js/vendor/*.js',
 			'../../src/js/chunks/*.js',
-			'../../public/src/index.js',
+			'../../src/js/utility.js',
 			'../../public/src/js/promise.js',
 			'../../public/src/js/fetch.js',
 			'../../public/src/js/*.min.js',

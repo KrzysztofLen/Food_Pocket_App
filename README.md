@@ -1,4 +1,5 @@
-# PROJECT MOBILE DICTIONARY[![Build Status](https://travis-ci.org/KrzysztofLen/mobile-dictionary.svg?branch=master)](https://travis-ci.org/KrzysztofLen/mobile-dictionary)
+# PROJECT MOBILE DICTIONARY
+[![Build Status](https://travis-ci.org/KrzysztofLen/mobile-dictionary.svg?branch=master)](https://travis-ci.org/KrzysztofLen/mobile-dictionary)
 [![Build status](https://ci.appveyor.com/api/projects/status/gauttiq7v97as25a?svg=true)](https://ci.appveyor.com/project/KrzysztofLen/mobile-dictionary)
 [![Dependency Status](https://dependencyci.com/github/KrzysztofLen/mobile-dictionary/badge)](https://dependencyci.com/github/KrzysztofLen/mobile-dictionary)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)

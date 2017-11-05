@@ -12,6 +12,7 @@
 		const el = document.querySelector(options.el),
 			tabNavigationLinks = el.querySelectorAll(options.tabNavigationLinks),
 			tabContentContainers = el.querySelectorAll(options.tabContentContainers);
+
 		let activeIndex = 0;
 		let initCalled = false;
 
