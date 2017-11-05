@@ -20,19 +20,19 @@
 	your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div id="tabs" class="c-tabs no-js">
+<div id="tabs" class="pl-mobile-dictionary__tabs-container no-js">
 	<nav class="pl-mobile-dictionary__nav">
-		<ul class="pl-mobile-dictionary__menu">
-			<li>
-				<a href="#home" class="pl-mobile-dictionary__nav__link active">
+		<ul class="pl-mobile-dictionary__nav__menu">
+			<li class="pl-mobile-dictionary__nav__menu__list">
+				<a href="#home" class="pl-mobile-dictionary__nav__menu__list__link active">
 					<svg fill="#606c76" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 						<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
 						<path d="M0 0h24v24H0z" fill="none"/>
 					</svg>
 					Home</a>
 			</li>
-			<li>
-				<a href="#favorite" class="pl-mobile-dictionary__nav__link">
+			<li class="pl-mobile-dictionary__nav__menu__list">
+				<a href="#favorite" class="pl-mobile-dictionary__nav__menu__list__link">
 					<svg fill="#606c76" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
@@ -40,8 +40,8 @@
 					</svg>
 					Favorite</a>
 			</li>
-			<li>
-				<a href="#dictionary" class="pl-mobile-dictionary__nav__link">
+			<li class="pl-mobile-dictionary__nav__menu__list">
+				<a href="#dictionary" class="pl-mobile-dictionary__nav__menu__list__link">
 					<svg fill="#606c76" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 						<path d="M0 0h24v24H0z" fill="none"/>
 						<path
@@ -49,8 +49,8 @@
 					</svg>
 					Dictionary</a>
 			</li>
-			<li>
-				<a href="#filtr" class="pl-mobile-dictionary__nav__link">
+			<li class="pl-mobile-dictionary__nav__menu__list">
+				<a href="#filtr" class="pl-mobile-dictionary__nav__menu__list__link">
 					<svg fill="#606c76" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"/>
@@ -58,8 +58,8 @@
 					</svg>
 					Filtr</a>
 			</li>
-			<li>
-				<a href="#search" class="pl-mobile-dictionary__nav__link">
+			<li class="pl-mobile-dictionary__nav__menu__list">
+				<a href="#search" class="pl-mobile-dictionary__nav__menu__list__link">
 					<svg fill="#606c76" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
@@ -121,6 +121,22 @@
 	</section>
 
 	<section id="dictionary">
+		<div class="c-tab">
+			<div class="c-tab__content">
+				<div id="pl-mobile-dictionary__dictionary-list"></div>
+			</div>
+		</div>
+	</section>
+
+	<section id="filtr">
+		<div class="c-tab">
+			<div class="c-tab__content">
+				Lorem ipsum 2
+			</div>
+		</div>
+	</section>
+
+	<section id="search">
 		<div class="c-tab">
 			<div class="c-tab__content">
 				Lorem ipsum 2
