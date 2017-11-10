@@ -13,7 +13,6 @@ import './app';
 const chosen = new Chosen(
 	document.querySelector('body'),
 	document.querySelector('.pl-md__side-chosen-container'),
-	document.querySelector('.pl-md__left-handed'),
-	document.querySelector('.pl-md__right-handed')
+	document.querySelectorAll('.btn')
 );
 console.log('%c Class: ', 'color: #2F195F', chosen);

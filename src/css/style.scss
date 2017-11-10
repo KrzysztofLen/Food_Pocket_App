@@ -75,6 +75,7 @@ input[type=text]:focus, textarea:focus {
 
 .pl-md {
 	&__side-chosen-container {
+		opacity: 0;
 		z-index: 1;
 		position: absolute;
 		top: 20vh;

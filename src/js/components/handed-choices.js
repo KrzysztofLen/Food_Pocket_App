@@ -1,9 +1,8 @@
 class Chosen {
-	constructor(body, content, leftBtn, rightBtn) {
+	constructor(body, content, choiceButtons) {
 		this.body = body;
 		this.content = content;
-		this.leftBtn = leftBtn;
-		this.rightBtn = rightBtn;
+		this.choiceButtons = choiceButtons;
 
 		this.init();
 	}
@@ -19,28 +18,44 @@ class Chosen {
 		const cookieValue = choice;
 		const expirationDate = 30;
 
-		Cookies.set(cookieName, cookieValue, { expires: expirationDate });
+		Cookies.set(cookieName, cookieValue, {expires: expirationDate});
 	}
 
-	rightChoose() {
-		this.rightBtn.addEventListener('click', () => {
-			this.removeOverlay();
-			this.setCookie('rightHanded');
-		});
+	getCookie() {
+		const getAllCookies = Cookies.get();
+
+		if (Object.keys(getAllCookies).length === 0 && getAllCookies.constructor === Object) {
+			console.log('%c [Cookies]: empty', 'color: #0288D1');
+			this.body.classList.add('full-overlay');
+			this.content.style.opacity = 1;
+		} else {
+			this.content.style.display = 'none';
+			console.log('%c [Cookies]: not empty', 'color: #ff600c', getAllCookies);
+		}
 	}
 
-	leftChoose() {
-		this.leftBtn.addEventListener('click', () => {
-			this.removeOverlay();
-			this.setCookie('leftHanded');
+	sideChoice() {
+		let _this = this;
+
+		this.choiceButtons.forEach(_btn => {
+			_btn.addEventListener('click', function (e) {
+
+				_this.removeOverlay();
+
+				if (e.target.dataset.button === 'right') {
+					_this.setCookie('rightHanded');
+				} else {
+					_this.setCookie('leftHanded');
+				}
+
+			})
 		});
 	}
 
 	init() {
-		this.body.classList.add('full-overlay');
-		this.rightChoose();
-		this.leftChoose();
+		this.sideChoice();
+		this.getCookie();
 	}
 }
 
-export { Chosen };
+export {Chosen};
