@@ -7,9 +7,27 @@
 }
 
 // Font-size
-@mixin font($sizeValue: 1.6) {
+@mixin font-size($sizeValue: 1.6) {
 	font-size: ($sizeValue * 10) + px;
 	font-size: $sizeValue + rem;
+}
+
+// Font family
+@mixin font-family($fontName) {
+	font-family: $fontName;
+}
+
+// Font weight
+@mixin font-weight($weight) {
+	font-weight: $weight;
+}
+
+
+// Full font-style
+@mixin font-style($weight, $size, $name) {
+	@include font-weight($weight);
+	@include font-size($size);
+	@include font-family($name);
 }
 
 // Font Smoothing
@@ -37,4 +55,44 @@ $breakpoints: (
 			@content;
 		}
 	}
+}
+
+// Transition mixins
+@mixin transitionShort($duration) {
+	-webkit-transition:all $duration ease-in-out;
+	-moz-transition:all $duration ease-in-out;
+	transition:all $duration ease-in-out;
+}
+
+// Dark overlay mixin
+@mixin dark-overlay {
+	&:after {
+		content: "";
+		width: 100%;
+		height: auto;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+	}
+}
+
+// Button hover effect
+@mixin button-hover {
+	border: 1px solid;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+	outline-color: rgba(255, 255, 255, 0);
+	outline-offset: 15px;
+	text-shadow: 1px 1px 2px #427388;
+}
+
+// Centered Vertical
+@mixin centered-vertical($top, $left) {
+	position: absolute;
+	top: $top;
+	left: $left;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }

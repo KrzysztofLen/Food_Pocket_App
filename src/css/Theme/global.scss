@@ -1,3 +1,6 @@
+@import "../Base/_colors.scss";
+@import "../Base/_mixins.scss";
+
 * {
 	box-sizing: border-box;
 }
@@ -6,4 +9,15 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+}
+
+.full-overlay {
+	position: absolute;
+	z-index: 1;
+	height: 100vh;
+	@include dark-overlay;
+}
+
+.full-overlay:after{
+	background:rgba(0, 0, 0, 0.75);
 }

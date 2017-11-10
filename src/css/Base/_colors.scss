@@ -5,8 +5,8 @@ $amount75: 75%;
 $amount90: 90%;
 
 // BASE
-$white: #FFFFFF;
-$black: #000000;
+$color-white: #FFFFFF;
+$color-black: #000000;
 
 // / THEME
 $base-purple: #9b4dca;
@@ -15,7 +15,7 @@ $gray-dark: #606c76;
 // 3 shades of grey
 $base-grey: #ccc;
 
-$color-light-gray: mix($base-grey, $white, $amount25);
-$color-medium-gray: mix($base-grey, $black, $amount50);
-$color-dark-gray: mix($base-grey, $black, $amount75);
+$color-light-gray: mix($base-grey, $color-white, $amount25);
+$color-medium-gray: mix($base-grey, $color-black, $amount50);
+$color-dark-gray: mix($base-grey, $color-black, $amount75);
 

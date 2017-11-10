@@ -1,6 +1,7 @@
 @import "Base/_colors.scss";
 @import "Base/_mixins.scss";
-
+@import "Base/_fonts.scss";
+@import "Theme/Theme.scss";
 
 #root {
 	.test_product {
@@ -25,7 +26,7 @@
 		grid-column-end: 4;
 
 		&--message {
-			@include font(1.4);
+			@include font-size(1.4);
 			line-height: 1.2rem;
 
 			strong {
@@ -68,5 +69,46 @@ input[type=text]:focus, textarea:focus {
 .pl-mobile-dictionary {
 	&__input-container {
 		margin: 20px 0;
+	}
+}
+
+
+.pl-md {
+	&__side-chosen-container {
+		z-index: 1;
+		position: absolute;
+		top: 20vh;
+		width: 100%;
+		text-align: center;
+		outline: 1px solid;
+	}
+
+	&__chosen-header {
+		color: $color-white;
+		@include font-family($Kanit);
+	}
+
+	&__right-handed {
+		color: $ELECTRIC-LAVENDER;
+		background: $RUSSIAN-VIOLET;
+		border: none;
+		@include font-family($Kanit);
+		font-weight: $font-500;
+
+		&:hover {
+			@include button-hover;
+		}
+	}
+
+	&__left-handed {
+		color: $RUSSIAN-VIOLET;
+		background: $ELECTRIC-LAVENDER;
+		border: none;
+		@include font-family($Kanit);
+		font-weight: $font-500;
+
+		&:hover {
+			@include button-hover;
+		}
 	}
 }
