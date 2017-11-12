@@ -81,6 +81,13 @@ module.exports = {
 					loader: 'svg-url-loader',
 					options: {}
 				}
+			},
+			{
+				test: /\.(eot|svg|ttf|otf|woff|woff2)$/,
+				loader: 'file-loader',
+				options: {
+					name: 'fonts/[name].[ext]',
+				}
 			}
 		]
 	},

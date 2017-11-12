@@ -1,9 +1,10 @@
 /* global document */
+import anime from 'animejs';
 
 (function () {
 	const inputContainer = document.getElementsByClassName('pl-mobile-dictionary__input-container');
 	const input = document.getElementsByClassName('pl-mobile-dictionary__input');
-
+	const tabNav = document.getElementById('tabs-nav');
 	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
 
 	const inputFirst = document.querySelector('#pl-mobile-dictionary__input-first'),
@@ -76,22 +77,6 @@
 			});
 	}
 
-	// Function writeData(st, data) {
-	// 	return dbPromise
-	// 		.then(function(db) {
-	// 			var tx = db.transaction(st, 'readwrite');
-	// 			var store = tx.objectStore(st);
-	// 			store.put(data);
-	// 			return tx.complete;
-	// 		});
-	// }
-
-	// var dbPromise = idb.open('data-store', 1, function (db) {
-	// 	if (!db.objectStoreNames.contains('sync-data')) {
-	// 		db.createObjectStore('sync-data', {keyPath: 'id'});
-	// 	}
-	// });
-
 	form.addEventListener('submit', event => {
 		event.preventDefault();
 		keyPressed;
@@ -124,6 +109,42 @@
 		}
 	});
 
+	/**
+	 * @desc Hidden tab navigation
+	 */
+
+	const hideTabNav = () => {
+		function animation() {
+			let innerWidth = window.innerWidth;
+
+			if(innerWidth >= 767) {
+				tabNav.classList.add('hide');
+				anime({
+					targets: '#tabs-nav',
+					translateY: -100,
+					duration: 2500
+				});
+			} else {
+				tabNav.classList.remove('hide');
+				anime({
+					targets: '#tabs-nav',
+					translateY: 0,
+					duration: 3000
+				});
+			}
+		}
+
+		window.onload = function () {
+			animation();
+		}
+
+		window.onresize = () => {
+			animation();
+		}
+	}
+
+
+	hideTabNav();
 
 	hideDangerMessage();
 })();

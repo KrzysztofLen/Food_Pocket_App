@@ -38,7 +38,7 @@ class Chosen {
 		let _this = this;
 
 		this.choiceButtons.forEach(_btn => {
-			_btn.addEventListener('click', function (e) {
+			_btn.addEventListener('click', (e) => {
 
 				_this.removeOverlay();
 

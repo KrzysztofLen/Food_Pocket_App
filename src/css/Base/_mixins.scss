@@ -11,8 +11,16 @@
 	font-size: ($sizeValue * 10) + px;
 	font-size: $sizeValue + rem;
 }
-
-// Font family
+/// Helper mixin to add font family in a single line.
+/// This mixin is essentially a short hand to define
+/// `font-family` simultaneously.
+///
+/// @group shorthand
+///
+/// @example scss - Sizing `.foo`
+///   .foo {
+///     @include font-family('Kanit', sans-serif;);
+///   }
 @mixin font-family($fontName) {
 	font-family: $fontName;
 }

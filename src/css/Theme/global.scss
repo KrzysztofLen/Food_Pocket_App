@@ -1,5 +1,6 @@
 @import "../Base/_colors.scss";
 @import "../Base/_mixins.scss";
+//@import '../State/Peace_Sans.scss';
 
 * {
 	box-sizing: border-box;
@@ -20,4 +21,8 @@ body {
 
 .full-overlay:after{
 	background:rgba(0, 0, 0, 0.75);
+}
+
+.hide {
+	display: block;
 }

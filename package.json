@@ -8,7 +8,8 @@
 		"sass": "node-sass --output-style compressed src/css/main.scss -o dist/",
 		"clean": "rimraf src/dist",
 		"unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-		"open:coverage": "start chrome \"./test/unit/coverage/lcov-report/index.html\""
+		"open:coverage": "start chrome \"./test/unit/coverage/lcov-report/index.html\"",
+		"sass:doc": "sassdoc src/css/**/*.scss"
 	},
 	"author": "Krzysztof Len",
 	"license": "ISC",
@@ -35,6 +36,7 @@
 		"webpack-dev-server": "^2.6.1"
 	},
 	"dependencies": {
+		"animejs": "^2.2.0",
 		"babel-cli": "^6.26.0",
 		"babel-minify-webpack-plugin": "^0.2.0",
 		"babel-plugin-transform-es2015-modules-umd": "^6.24.1",
@@ -66,6 +68,7 @@
 		"rollup-plugin-commonjs": "^8.2.6",
 		"rollup-plugin-mockr": "^1.0.5",
 		"rollup-plugin-node-resolve": "^3.0.0",
+		"sassdoc": "^2.4.0",
 		"sinon": "^4.1.1",
 		"sinon-chai": "^2.14.0",
 		"stylelint": "^8.2.0",
