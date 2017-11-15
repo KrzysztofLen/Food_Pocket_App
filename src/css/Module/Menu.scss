@@ -146,3 +146,108 @@ li.slider {
 .c-tab__content {
 	padding: 1.5rem;
 }
+
+
+/* --------------------------------
+
+Navigation
+
+-------------------------------- */
+.cd-side-navigation {
+	position: fixed;
+	z-index: 3;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 94px;
+	overflow: hidden;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: calc(100% - 4px);
+		background: $side-nav-bg;
+	}
+
+	ul {
+		height:100%;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	li {
+		width: calc(100% - 4px);
+	}
+
+	a {
+		display: block;
+		position: relative;
+		padding: 4em 0 1.5em;
+		font-size: 12px;
+		text-align: center;
+		color: lighten($color-5, 25%);
+		transition: background-color 0.2s, color 0.2s;
+
+		svg {
+			position: absolute;
+			@include center(x);
+			top: 1.3em;
+
+			* {
+				@include transition(stroke 0.2s);
+			}
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: -4px;
+			height: 100%;
+			width: 4px;
+			background-color: $home-nav;
+			opacity: 0;
+			@include transition(opacity 0.2s);
+			pointer-events: none;
+		}
+
+		.no-touch &:hover {
+			background-color: darken($color-5, 5%);
+
+			&:after {
+				opacity: 1;
+			}
+		}
+
+		&.selected, .no-touch &.selected:hover {
+			background-color: $color-white;
+			color: $color-5;
+		}
+	}
+}
+
+/* --------------------------------
+
+ Main Content
+
+-------------------------------- */
+.cd-section {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	transform: translateX(-100%);
+	transition: transform 0s 0.5s;
+
+	&.visible {
+		position: relative;
+		z-index: 2;
+		transform: translateX(0);
+		transition: transform 0.5s 0s;
+	}
+}

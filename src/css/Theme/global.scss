@@ -2,7 +2,7 @@
 @import "../Base/_mixins.scss";
 //@import '../State/Peace_Sans.scss';
 
-* {
+*, *:after, *:before {
 	box-sizing: border-box;
 }
 

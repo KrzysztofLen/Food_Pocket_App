@@ -66,7 +66,7 @@ $breakpoints: (
 }
 
 // Transition mixins
-@mixin transitionShort($duration) {
+@mixin transition($duration) {
 	-webkit-transition:all $duration ease-in-out;
 	-moz-transition:all $duration ease-in-out;
 	transition:all $duration ease-in-out;
@@ -103,4 +103,28 @@ $breakpoints: (
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
+}
+
+@mixin transform($property: none) {
+	transform: $property;
+}
+
+@mixin center($xy:xy) {
+	@if $xy == xy {
+		left: 50%;
+		top: 50%;
+		bottom: auto;
+		right: auto;
+		@include transform(translateX(-50%) translateY(-50%));
+	}
+	@else if $xy == x {
+		left: 50%;
+		right: auto;
+		@include transform(translateX(-50%));
+	}
+	@else if $xy == y {
+		top: 50%;
+		bottom: auto;
+		@include transform(translateY(-50%));
+	}
 }

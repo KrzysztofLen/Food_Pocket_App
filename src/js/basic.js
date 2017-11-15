@@ -5,6 +5,7 @@ import anime from 'animejs';
 	const inputContainer = document.getElementsByClassName('pl-mobile-dictionary__input-container');
 	const input = document.getElementsByClassName('pl-mobile-dictionary__input');
 	const tabNav = document.getElementById('tabs-nav');
+	const sideNav = document.querySelector('.cd-side-navigation');
 	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
 
 	const inputFirst = document.querySelector('#pl-mobile-dictionary__input-first'),
@@ -119,6 +120,7 @@ import anime from 'animejs';
 
 			if(innerWidth >= 767) {
 				tabNav.classList.add('hide');
+				sideNav.classList.remove('hide');
 				anime({
 					targets: '#tabs-nav',
 					translateY: -100,
@@ -126,6 +128,7 @@ import anime from 'animejs';
 				});
 			} else {
 				tabNav.classList.remove('hide');
+				sideNav.classList.add('hide');
 				anime({
 					targets: '#tabs-nav',
 					translateY: 0,
