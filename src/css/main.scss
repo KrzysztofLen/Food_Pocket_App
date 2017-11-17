@@ -14,6 +14,8 @@
 /*		MODULE    */
 /* ------------- */
 @import "Module/Menu.scss";
+@import "Module/Tab.scss";
+@import "Module/SideChoose.scss";
 
 /* ------------- */
 /*		STATE    */
@@ -28,7 +30,5 @@
 
 /* ------------- */
 /*		TEST TO REMOVE    */
-@import 'tester.scss';
-@import 'test.css';
 @import 'style.scss';
 @import 'reset.css';

@@ -36,10 +36,6 @@
 	}
 }
 
-.hide {
-	display: none;
-}
-
 input[type=text], textarea {
 	-webkit-transition: all 0.30s ease-in-out;
 	-moz-transition: all 0.30s ease-in-out;
@@ -72,44 +68,3 @@ input[type=text]:focus, textarea:focus {
 	}
 }
 
-
-.pl-md {
-	&__side-chosen-container {
-		opacity: 0;
-		z-index: 1;
-		position: absolute;
-		top: 20vh;
-		width: 100%;
-		text-align: center;
-		outline: 1px solid;
-	}
-
-	&__chosen-header {
-		color: $color-white;
-		@include font-family($Kanit);
-	}
-
-	&__right-handed {
-		color: $ELECTRIC-LAVENDER;
-		background: $RUSSIAN-VIOLET;
-		border: none;
-		@include font-family($Kanit);
-		font-weight: $font-500;
-
-		&:hover {
-			@include button-hover;
-		}
-	}
-
-	&__left-handed {
-		color: $RUSSIAN-VIOLET;
-		background: $ELECTRIC-LAVENDER;
-		border: none;
-		@include font-family($Kanit);
-		font-weight: $font-500;
-
-		&:hover {
-			@include button-hover;
-		}
-	}
-}

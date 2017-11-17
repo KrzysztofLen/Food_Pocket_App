@@ -7,6 +7,7 @@ import anime from 'animejs';
 	const tabNav = document.getElementById('tabs-nav');
 	const sideNav = document.querySelector('.cd-side-navigation');
 	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
+	const tabContent = document.querySelectorAll('section');
 
 	const inputFirst = document.querySelector('#pl-mobile-dictionary__input-first'),
 		  inputSecond = document.querySelector('#pl-mobile-dictionary__input-second'),
@@ -137,12 +138,28 @@ import anime from 'animejs';
 			}
 		}
 
+		const resizeContent = () => {
+			let innerWidth = window.innerWidth;
+
+			if(innerWidth >= 767) {
+				tabContent.forEach(_tabContent => {
+					_tabContent.classList.add('column');
+				});
+			} else {
+				tabContent.forEach(_tabContent => {
+					_tabContent.classList.remove('column');
+				});
+			}
+		}
+
 		window.onload = function () {
 			animation();
+			resizeContent();
 		}
 
 		window.onresize = () => {
 			animation();
+			resizeContent();
 		}
 	}
 

@@ -24,5 +24,10 @@ body {
 }
 
 .hide {
-	display: block;
+	display: none;
+}
+
+.column {
+	width: 70%;
+	margin: 0 auto;
 }

@@ -1,4 +1,4 @@
-class TabMenu {
+class SideNav {
 	constructor(tabs, tabNavLink, tabContent) {
 		this.tabs = tabs;
 		this.tabNavLink = tabNavLink;
@@ -12,9 +12,9 @@ class TabMenu {
 
 		this.tabNavLink.forEach(tab => tab.addEventListener('click', () => {
 			for (let i = 0; i < _this.tabNavLink.length; i++) {
-				_this.tabNavLink[i].classList.remove('active');
+				_this.tabNavLink[i].classList.remove('selected');
 			}
-			tab.classList.toggle('active');
+			tab.classList.toggle('selected');
 		}));
 	}
 
@@ -38,6 +38,7 @@ class TabMenu {
 		let initCalled = false;
 
 		if (!initCalled) {
+			// initCalled = true;
 			this.tabs.classList.remove('no-js');
 
 			for (let i = 0; i < this.tabNavLink.length; i++) {
@@ -49,4 +50,4 @@ class TabMenu {
 	}
 }
 
-export {TabMenu};
+export {SideNav};

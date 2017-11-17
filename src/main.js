@@ -5,6 +5,8 @@ import '../src/css/main.scss';
 // Import './js/utility.js';
 import { Chosen } from './js/components/handed-choices';
 import { TabMenu } from "./js/components/menu";
+import { SideNav } from "./js/components/sideNav";
+
 import './js/plugins';
 import './js/basic';
 import './js/dictionary';
@@ -24,3 +26,11 @@ const tabMenu = new TabMenu(
 );
 
 console.log('%c Class: ', 'color: #F600C0', tabMenu);
+
+const sideNav = new SideNav(
+	document.querySelector('#tabs'),
+	document.querySelectorAll('.cd-side-navigation__nav__menu__list__link'),
+	document.querySelectorAll('.c-tab'),
+);
+
+console.log('%c Class: ', 'color: #F600C0', sideNav);

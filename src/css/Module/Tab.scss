@@ -1,0 +1,11 @@
+.c-tab {
+	display: none;
+}
+
+.c-tab.is-active {
+	display: block;
+}
+
+.c-tab__content {
+	padding: 1.5rem;
+}
