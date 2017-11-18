@@ -136,7 +136,7 @@ Navigation
 
 -------------------------------- */
 .cd-side-navigation-left {
-	@include navigation(100vh, 94px, hidden, fixed, 0, 0);
+	@include navigation(100vh, 94px, hidden, fixed, 2, 0);
 	left: 0;
 
 	&:before {
@@ -196,7 +196,7 @@ Navigation
 }
 
 .cd-side-navigation-right {
-	@include navigation(100vh, 94px, hidden, fixed, 0, 0);
+	@include navigation(100vh, 94px, hidden, fixed, 2, 0);
 	right: 0;
 
 	&:before {

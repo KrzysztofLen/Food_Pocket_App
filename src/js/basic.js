@@ -139,9 +139,10 @@ import anime from 'animejs';
 		}
 
 		const resizeContent = () => {
+			const [ CookieName ] = Object.keys(Cookies.get());
 			let innerWidth = window.innerWidth;
 
-			if(innerWidth >= 767) {
+			if((innerWidth >= 767) && (CookieName === 'Menu-is-for-leftHanded-handed')) {
 				tabContent.forEach(_tabContent => {
 					_tabContent.classList.add('column');
 				});
