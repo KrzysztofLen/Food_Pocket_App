@@ -5,7 +5,7 @@ import anime from 'animejs';
 	const inputContainer = document.getElementsByClassName('pl-mobile-dictionary__input-container');
 	const input = document.getElementsByClassName('pl-mobile-dictionary__input');
 	const tabNav = document.getElementById('tabs-nav');
-	const sideNav = document.querySelector('.cd-side-navigation');
+	const sideNav = document.querySelector('.cd-side-navigation-left');
 	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
 	const tabContent = document.querySelectorAll('section');
 

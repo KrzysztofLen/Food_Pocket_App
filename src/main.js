@@ -15,7 +15,8 @@ import './app';
 const chosen = new Chosen(
 	document.querySelector('body'),
 	document.querySelector('.pl-md__side-chosen-container'),
-	document.querySelectorAll('.btn')
+	document.querySelectorAll('.btn'),
+	document.querySelector('.cd-side-navigation-left')
 );
 console.log('%c Class: ', 'color: #F600C0', chosen);
 

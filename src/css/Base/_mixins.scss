@@ -128,3 +128,59 @@ $breakpoints: (
 		@include transform(translateY(-50%));
 	}
 }
+
+
+/// Helper mixin to style navigation depends what side was chosen.
+/// @group shorthand
+///
+/// @example scss - Sizing `.nav`
+///   .nav {
+///     @include navigation(100vh, 94px, hidden, fixed, 0, 0;);
+///   }
+@mixin navigation($height, $width, $overflow, $position, $z-index, $top) {
+	height: $height;
+	width: $width;
+	overflow: $overflow;
+	position: $position;
+	z-index: $z-index;
+	top: $top;
+	@content;
+}
+
+
+/// Helper mixin to style navigation depends what side was chosen.
+/// @group shorthand
+///
+/// @example scss - Sizing `.nav`
+///   .nav {
+///     @include navigation-before($side-nav-bg);
+///   }
+@mixin navigation-before($background) {
+	content: "";
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: calc(100% - 4px);
+	background: $background;
+	@content;
+}
+
+
+/// Helper mixin to style navigation depends what side was chosen.
+/// @group shorthand
+///
+/// @example scss - Sizing `.nav`
+///   .nav {
+///    @include navigation-a-after(0, 100%, 4px, $home-nav, 0);
+///   }
+@mixin navigation-a-after($top, $height, $width, $background, $opacity) {
+	content: '';
+	position: absolute;
+	top: $top;
+	height: $height;
+	width: $width;
+	background-color: $background;
+	opacity: $opacity;
+	pointer-events: none;
+	@content;
+}

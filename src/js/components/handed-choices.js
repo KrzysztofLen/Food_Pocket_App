@@ -1,8 +1,9 @@
 class Chosen {
-	constructor(body, content, choiceButtons) {
+	constructor(body, content, choiceButtons, sideNavigation) {
 		this.body = body;
 		this.content = content;
 		this.choiceButtons = choiceButtons;
+		this.sideNavigation = sideNavigation;
 
 		this.init();
 	}
@@ -22,7 +23,10 @@ class Chosen {
 	}
 
 	getCookie() {
+		let _this = this;
 		const getAllCookies = Cookies.get();
+		const [ CookieName ] = Object.keys(getAllCookies);
+		// const nav = document.querySelector('.cd-side-navigation-left');
 
 		if (Object.keys(getAllCookies).length === 0 && getAllCookies.constructor === Object) {
 			console.log('%c [Cookies]: empty', 'color: #0288D1');
@@ -31,11 +35,17 @@ class Chosen {
 		} else {
 			this.content.style.display = 'none';
 			console.log('%c [Cookies]: not empty', 'color: #ff600c', getAllCookies);
+
+			if(CookieName === 'Menu-is-for-rightHanded-handed') {
+				_this.sideNavigation.classList.remove('cd-side-navigation-left');
+				_this.sideNavigation.classList.add('cd-side-navigation-right');
+			}
 		}
 	}
 
 	sideChoice() {
 		let _this = this;
+		// const nav = document.querySelector('.cd-side-navigation-left');
 
 		this.choiceButtons.forEach(_btn => {
 			_btn.addEventListener('click', (e) => {
@@ -44,6 +54,9 @@ class Chosen {
 
 				if (e.target.dataset.button === 'right') {
 					_this.setCookie('rightHanded');
+					_this.sideNavigation.classList.remove('cd-side-navigation-left');
+					_this.sideNavigation.classList.add('cd-side-navigation-right');
+
 				} else {
 					_this.setCookie('leftHanded');
 				}
