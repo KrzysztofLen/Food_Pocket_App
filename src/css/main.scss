@@ -1,32 +1,42 @@
 /* ------------- */
-/*		BASE	 */
+/*		ABSTRACTS	 */
 /* ------------- */
-@import 'Base/_colors.scss';
-@import 'Base/_mixins.scss';
-@import 'Base/_fonts.scss';
+@import 'Abstracts/functions';
+@import 'Abstracts/mixins';
+@import 'Abstracts/placeholders';
+@import 'Abstracts/variables';
+
+/* ------------- */
+/*		BASE    */
+/* ------------- */
+@import 'Base/fonts';
+@import 'Base/typography';
+
+/* ------------- */
+/*		COMPONENTS    */
+/* ------------- */
+@import 'Components/sideChoose';
 
 /* ------------- */
 /*		LAYOUT    */
 /* ------------- */
-
-
-/* ------------- */
-/*		MODULE    */
-/* ------------- */
-@import "Module/Menu.scss";
-@import "Module/Tab.scss";
-@import "Module/SideChoose.scss";
-@import "Module/Header.scss";
+@import 'Layout/header';
+@import 'Layout/navigation';
+@import 'Layout/tab';
 
 /* ------------- */
-/*		STATE    */
+/*		PAGES    */
 /* ------------- */
-@import "State/Peace_Sans";
 
 /* ------------- */
-/*		THEME    */
+/*		THEMES    */
 /* ------------- */
-@import "Theme/global";
+@import "Themes/global";
+@import "Themes/Theme";
+
+/* ------------- */
+/*		VENDORS    */
+/* ------------- */
 
 
 /* ------------- */

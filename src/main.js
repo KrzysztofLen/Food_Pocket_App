@@ -14,7 +14,7 @@ import './app';
 
 const chosen = new Chosen(
 	document.querySelector('body'),
-	document.querySelector('.pl-md__side-chosen-container'),
+	document.querySelector('.food-app__nav-side__container'),
 	document.querySelectorAll('.btn'),
 	document.querySelector('.cd-side-navigation-left')
 );

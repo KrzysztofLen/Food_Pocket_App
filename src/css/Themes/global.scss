@@ -1,16 +1,23 @@
-@import "../Base/_colors.scss";
-@import "../Base/_mixins.scss";
+@import "../Abstracts/variables";
+@import "../Abstracts/mixins";
 //@import '../State/Peace_Sans.scss';
-
-*, *:after, *:before {
+//#TODO ADD 7-1 pattern, replace px into rem
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 }
 
-html,
+html {
+	//font-size: 10px;
+}
+
+
 body {
-	margin: 0;
-	padding: 0;
 	overflow-x: hidden;
+	box-sizing: border-box;
 }
 
 h1 {
@@ -21,6 +28,7 @@ h1 {
 	position: absolute;
 	z-index: 1;
 	height: 100vh;
+	width: 100%;
 	@include dark-overlay;
 }
 

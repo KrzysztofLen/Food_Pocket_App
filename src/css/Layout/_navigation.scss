@@ -1,5 +1,5 @@
-@import '../Base/_colors.scss';
-@import '../Base/_mixins.scss';
+@import '../Abstracts/variables';
+@import '../Abstracts/mixins';
 
 .pl-mobile-dictionary__nav {
 	&__menu {
@@ -136,7 +136,7 @@ Navigation
 
 -------------------------------- */
 .cd-side-navigation-left {
-	@include navigation(100vh, 94px, hidden, fixed, 2, 0);
+	@include navigation(100vh, 94px, hidden, fixed, 0, 0);
 	left: 0;
 
 	&:before {

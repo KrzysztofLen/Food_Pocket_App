@@ -1,0 +1,55 @@
+@import "../Abstracts/variables";
+@import "../Abstracts/mixins";
+@import "../Base/fonts";
+@import "../Themes/Theme.scss";
+
+.food-app {
+	&__nav-side {
+		&__container {
+			padding: 30px;
+			opacity: 0;
+			z-index: 1;
+			position: absolute;
+			top: 20vh;
+			width: 100%;
+			text-align: center;
+			outline: 1px solid;
+			background: rgba($color-dark-gray, 0.1);
+		}
+
+		&__header {
+			color: $color-white;
+			@include font-family('PeaceSans');
+			@include font-size(5.5);
+			font-weight: 400;
+			text-transform: capitalize;
+			letter-spacing: 2.2px;
+		}
+	}
+
+//#TODO DRY make @extend SCSS
+
+	&__right-handed {
+		color: $ELECTRIC-LAVENDER;
+		background: $RUSSIAN-VIOLET;
+		border: none;
+		@include font-family('PeaceSans');
+		font-weight: $font-500;
+
+		&:hover {
+			@include button-hover;
+		}
+	}
+
+	&__left-handed {
+		color: $RUSSIAN-VIOLET;
+		background: $ELECTRIC-LAVENDER;
+		border: none;
+		@include font-family($Kanit);
+		font-weight: $font-500;
+
+		&:hover {
+			@include button-hover;
+		}
+	}
+}
