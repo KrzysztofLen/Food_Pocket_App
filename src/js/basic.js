@@ -2,8 +2,8 @@
 import anime from 'animejs';
 
 (function () {
-	const inputContainer = document.getElementsByClassName('pl-mobile-dictionary__input-container');
-	const input = document.getElementsByClassName('pl-mobile-dictionary__input');
+	const inputContainer = document.getElementsByClassName('main-form__input-container');
+	const input = document.getElementsByClassName('main-form__input');
 	const tabNav = document.getElementById('tabs-nav');
 	const sideNav = document.querySelector('.cd-side-navigation-left');
 	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
@@ -12,7 +12,7 @@ import anime from 'animejs';
 	const inputFirst = document.querySelector('#pl-mobile-dictionary__input-first'),
 		  inputSecond = document.querySelector('#pl-mobile-dictionary__input-second'),
 		  form = document.querySelector('form'),
-		  error = document.querySelector('.pl-mobile-dictionary__error-message-container');
+		  error = document.querySelector('.main-form__error-container');
 
     // Initialize Firebase
 	const config = {

@@ -1,0 +1,62 @@
+@import "../Abstracts/variables";
+@import "../Abstracts/mixins";
+@import "../Base/fonts";
+@import "../Themes/Theme.scss";
+
+.main-form {
+	&__header-wrapper {
+		display: grid;
+		grid-template-columns: 0 1fr 2fr 1fr;
+	}
+
+	&__header {
+		grid-column-end: 4;
+		margin: 0;
+		background: $color-3;
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 0 1fr 2fr 1fr;
+	}
+
+	&__container {
+		grid-column-end: 4;
+		border: 1px solid $color-dark-gray;
+		padding: 35px;
+
+		.weight-container {
+			grid-template-columns: 1fr 70px 1fr;
+			display: grid;
+			grid-gap: 7px;
+		}
+	}
+
+	&__error-container {
+		grid-column-end: 4;
+	}
+
+	&__error-message {
+		@include font-size(1.4);
+		line-height: 1.2rem;
+
+		strong {
+			color: $base-purple;
+		}
+	}
+
+	&__input-container {
+		margin: 20px 0;
+	}
+
+}
+
+
+.has-danger {
+	input[type=text] {
+		outline: none;
+		box-shadow: 0 0 5px rgba(232, 52, 59, 1);
+		margin: 5px 1px 3px 0px;
+		border: 1px solid rgba(232, 52, 59, 1);
+	}
+}

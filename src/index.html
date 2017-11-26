@@ -153,26 +153,74 @@
 
 			</div>
 
-			<div class="pl-mobile-dictionary__container" id="pl-mobile-dictionary__container">
+			<div class="main-form__header-wrapper">
+				<h1 class="main-form__header">Test</h1>
+			</div>
 
-				<div class="pl-mobile-dictionary__error-message-container" role="alert">
-					<span class="pl-mobile-dictionary__error-message-container--message"><strong>Oh snap!</strong> This is placeholder error message.</span>
-				</div>
+			<div class="main-form__wrapper" id="pl-mobile-dictionary__container">
+				<div class="main-form__container">
+					<div class="main-form__error-container" role="alert">
+						<span class="main-form__error-message"><strong>Oh snap!</strong> This is placeholder error message.</span>
+					</div>
 
-				<div class="pl-mobile-dictionary__form-container">
 					<form action="">
 						<fieldset>
-							<div class="pl-mobile-dictionary__input-container" id="test">
-								<input type="text" class="pl-mobile-dictionary__input"
-									   id="pl-mobile-dictionary__input-first" placeholder="Example input">
+							<div class="main-form__input-container" id="test">
+								<input type="text" class="main-form__input"
+									   id="pl-mobile-dictionary__input-first" placeholder="Product name">
 							</div>
-							<div class="pl-mobile-dictionary__input-container" id="test1">
-								<input type="text" class="pl-mobile-dictionary__input"
-									   id="pl-mobile-dictionary__input-second" placeholder="Example input">
+							<div class="main-form__input-container" id="test1">
+								<input type="text" class="main-form__input"
+									   id="pl-mobile-dictionary__input-second" placeholder="Short description">
 							</div>
+							<div class="main-form__input-container" id="price">
+								<input type="number" class="main-form__input main-form__input--price" placeholder="1">
+							</div>
+							<div class="main-form__input-container" id="type">
+								<select name="type" class="main-form__input main-form__input--type">
+									<optgroup label="Fruits & Vegetables">
+										<option value="volvo">Volvo</option>
+										<option value="saab">Saab</option>
+									</optgroup>
+									<optgroup label="Meat">
+										<option value="volvo">Volvo</option>
+										<option value="saab">Saab</option>
+										<option value="mercedes">Mercedes</option>
+										<option value="audi">Audi</option>
+									</optgroup>
+									<optgroup label="Drinks">
+										<option value="volvo">Volvo</option>
+										<option value="saab">Saab</option>
+										<option value="mercedes">Mercedes</option>
+										<option value="audi">Audi</option>
+									</optgroup>
+									<optgroup label="Diary">
+										<option value="volvo">Volvo</option>
+										<option value="saab">Saab</option>
+										<option value="mercedes">Mercedes</option>
+										<option value="audi">Audi</option>
+									</optgroup>
+									<optgroup label="Bakery">
+										<option value="volvo">Volvo</option>
+										<option value="saab">Saab</option>
+										<option value="mercedes">Mercedes</option>
+										<option value="audi">Audi</option>
+									</optgroup>
+								</select>
+							</div>
+							<div class="main-form__input-container weight-container" id="type1">
+								<input type="text" class="main-form__input main-form__input--weight" placeholder="1">
+								<select>
+									<option value="kg">Kg</option>
+									<option value="g">g</option>
+									<option value="ml">ml</option>
+									<option value="l">l</option>
+								</select>
+							</div>
+
 							<div class="form-group">
 								<button type="submit" class="button button-outline" id="pl-mobile-dictionary__submit">
-									Sign in
+									Send it
 								</button>
 							</div>
 						</fieldset>
