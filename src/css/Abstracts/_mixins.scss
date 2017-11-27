@@ -57,6 +57,7 @@ $breakpoints: (
 	'laptop': ( min-width:  1220px ),
 	'desktop': ( min-width:  1600px )
 );
+
 @mixin media($name) {
 	@if map-has-key($breakpoints, $name) {
 		@media #{inspect(map-get($breakpoints, $name))} {
@@ -183,4 +184,12 @@ $breakpoints: (
 	opacity: $opacity;
 	pointer-events: none;
 	@content;
+}
+
+@mixin clearfix {
+	&::after {
+		clear: both;
+		content: "";
+		display: table;
+	}
 }

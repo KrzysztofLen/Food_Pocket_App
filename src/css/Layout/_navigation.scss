@@ -161,7 +161,7 @@ Navigation
 		padding: 4em 0 1.5em;
 		font-size: 12px;
 		text-align: center;
-		color: lighten($color-5, 25%);
+		color: lighten($rasin-black, 25%);
 		transition: background-color 0.2s, color 0.2s;
 
 		svg {
@@ -176,12 +176,12 @@ Navigation
 
 		&::after {
 			right: -4px;
-			@include navigation-a-after(0, 100%, 4px, $home-nav, 0);
+			@include navigation-a-after(0, 100%, 4px, $color-secondary-blue, 0);
 			@include transition(opacity 0.2s);
 		}
 
 		.no-touch &:hover {
-			background-color: darken($color-5, 5%);
+			background-color: darken($rasin-black, 5%);
 
 			&:after {
 				opacity: 1;
@@ -190,7 +190,7 @@ Navigation
 
 		&.selected, .no-touch &.selected:hover {
 			background-color: $color-white;
-			color: $color-5;
+			color: $rasin-black;
 		}
 	}
 }
@@ -221,7 +221,7 @@ Navigation
 		padding: 4em 0 1.5em;
 		font-size: 12px;
 		text-align: center;
-		color: lighten($color-5, 25%);
+		color: lighten($rasin-black, 25%);
 		transition: background-color 0.2s, color 0.2s;
 
 		svg {
@@ -241,7 +241,7 @@ Navigation
 		}
 
 		.no-touch &:hover {
-			background-color: darken($color-5, 5%);
+			background-color: darken($rasin-black, 5%);
 
 			&:after {
 				opacity: 1;
@@ -250,7 +250,7 @@ Navigation
 
 		&.selected, .no-touch &.selected:hover {
 			background-color: $color-white;
-			color: $color-5;
+			color: $rasin-black;
 		}
 	}
 }

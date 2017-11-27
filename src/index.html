@@ -142,19 +142,15 @@
 		<div class="c-tab is-active">
 			<div class="pl-mobile-dictionary">
 
-				<header class="pl-mobile-dictionary__header">
-					<div class="pl-mobile-dictionary__text-box">
-						<h1 class="pl-mobile-dictionary__heading-primary">
-							<span class="pl-mobile-dictionary__heading-main">Ingredients</span>
-							<span class="pl-mobile-dictionary__heading-sub">make your taste better</span>
+				<header class="main__header">
+					<div class="main__text-box">
+						<h1 class="main__heading-primary">
+							<span class="main__heading-main">Ingredients</span>
+							<span class="main__heading-sub">make your taste better</span>
 						</h1>
 					</div>
 				</header>
 
-			</div>
-
-			<div class="main-form__header-wrapper">
-				<h1 class="main-form__header">Test</h1>
 			</div>
 
 			<div class="main-form__wrapper" id="pl-mobile-dictionary__container">
@@ -163,20 +159,31 @@
 						<span class="main-form__error-message"><strong>Oh snap!</strong> This is placeholder error message.</span>
 					</div>
 
-					<form action="">
+					<form class="main-form" action="">
 						<fieldset>
+							<legend class="main-form__header">Main Info</legend>
+
 							<div class="main-form__input-container" id="test">
+								<label class="main-form__label" for="cd-name">Product name</label>
 								<input type="text" class="main-form__input"
-									   id="pl-mobile-dictionary__input-first" placeholder="Product name">
+									   id="pl-mobile-dictionary__input-first" placeholder="Product name" required>
 							</div>
 							<div class="main-form__input-container" id="test1">
+								<label class="main-form__label" for="cd-name">Description</label>
 								<input type="text" class="main-form__input"
-									   id="pl-mobile-dictionary__input-second" placeholder="Short description">
+									   id="pl-mobile-dictionary__input-second" placeholder="Short description" required>
 							</div>
 							<div class="main-form__input-container" id="price">
-								<input type="number" class="main-form__input main-form__input--price" placeholder="1">
+								<label class="main-form__label" for="cd-name">Price</label>
+								<input type="number" class="main-form__input main-form__input--price" placeholder="1" required>
 							</div>
+						</fieldset>
+
+						<fieldset>
+							<legend class="main-form__header">Additional Info</legend>
+
 							<div class="main-form__input-container" id="type">
+								<label class="main-form__label" for="cd-name">Category</label>
 								<select name="type" class="main-form__input main-form__input--type">
 									<optgroup label="Fruits & Vegetables">
 										<option value="volvo">Volvo</option>
@@ -209,6 +216,7 @@
 								</select>
 							</div>
 							<div class="main-form__input-container weight-container" id="type1">
+								<label class="main-form__label" for="cd-name">Unit</label>
 								<input type="text" class="main-form__input main-form__input--weight" placeholder="1">
 								<select>
 									<option value="kg">Kg</option>
@@ -217,6 +225,7 @@
 									<option value="l">l</option>
 								</select>
 							</div>
+						</fieldset>
 
 							<div class="form-group">
 								<button type="submit" class="button button-outline" id="pl-mobile-dictionary__submit">
