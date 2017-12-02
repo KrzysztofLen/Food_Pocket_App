@@ -1,7 +1,11 @@
 @import '../Abstracts/variables';
 @import '../Abstracts/mixins';
 
-.pl-mobile-dictionary__nav {
+//#TODO named html tag BEM
+
+.mobile-nav {
+	background-color: $color-white;
+
 	&__menu {
 		list-style: none;
 		margin: 0;
@@ -10,22 +14,22 @@
 		position: relative;
 		display: flex;
 		border-bottom: 1px solid $color-light-gray;
+	}
 
-		&__list {
-			flex-grow: 1;
-			flex-shrink: 1;
-			flex-basis: 100%;
-			text-align: center;
-			margin-bottom: 0;
+	&__list {
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 100%;
+		text-align: center;
+		margin-bottom: 0;
+	}
 
-			&__link {
-				padding: 10px 0;
-				@include font-size(0.9);
-				display: flex;
-				flex-direction: column;
-				color: $gray-dark;
-			}
-		}
+	&__link {
+		padding: 10px 0;
+		@include font-size(0.9);
+		display: flex;
+		flex-direction: column;
+		color: lighten($rasin-black, 25%);
 	}
 }
 
@@ -43,18 +47,18 @@ li.slider {
 	transition: left .4s, background-color .4s;
 }
 
-.pl-mobile-dictionary__nav__menu li:nth-child(1):hover,
-.pl-mobile-dictionary__nav__menu li:nth-child(1):focus {
+.mobile-nav__menu li:nth-child(1):hover,
+.mobile-nav__menu li:nth-child(1):focus {
 	& ~ .slider {
 		left: 0;
 	}
 }
 
-.pl-mobile-dictionary__nav__menu li:nth-child(2):hover,
-.pl-mobile-dictionary__nav__menu li:nth-child(2):focus {
+.mobile-nav__menu li:nth-child(2):hover,
+.mobile-nav__menu li:nth-child(2):focus {
 	& ~ .slider {
 		left: 20%;
-		background-color: $base-purple;
+		background-color: $color-secondary-blue;
 	}
 
 	a {
@@ -68,12 +72,12 @@ li.slider {
 	}
 }
 
-.pl-mobile-dictionary__nav__menu li:nth-child(3):hover,
-.pl-mobile-dictionary__nav__menu li:nth-child(3):focus,
-.pl-mobile-dictionary__nav__menu li:nth-child(3):active {
+.mobile-nav__menu li:nth-child(3):hover,
+.mobile-nav__menu li:nth-child(3):focus,
+.mobile-nav__menu li:nth-child(3):active {
 	& ~ .slider {
 		left: 40%;
-		background-color: $base-purple;
+		background-color: $color-secondary-blue;
 	}
 
 	a {
@@ -87,12 +91,12 @@ li.slider {
 	}
 }
 
-.pl-mobile-dictionary__nav__menu li:nth-child(4):hover,
-.pl-mobile-dictionary__nav__menu li:nth-child(4):focus,
-.pl-mobile-dictionary__nav__menu li:nth-child(4):active {
+.mobile-nav__menu li:nth-child(4):hover,
+.mobile-nav__menu li:nth-child(4):focus,
+.mobile-nav__menu li:nth-child(4):active {
 	& ~ .slider {
 		left: 60%;
-		background-color: $base-purple;
+		background-color: $color-secondary-blue;
 	}
 
 	a {
@@ -106,12 +110,12 @@ li.slider {
 	}
 }
 
-.pl-mobile-dictionary__nav__menu li:nth-child(5):hover,
-.pl-mobile-dictionary__nav__menu li:nth-child(5):focus,
-.pl-mobile-dictionary__nav__menu li:nth-child(5):active {
+.mobile-nav__menu li:nth-child(5):hover,
+.mobile-nav__menu li:nth-child(5):focus,
+.mobile-nav__menu li:nth-child(5):active {
 	& ~ .slider {
 		left: 80%;
-		background-color: $base-purple;
+		background-color: $color-secondary-blue;
 	}
 
 	a {
@@ -126,8 +130,12 @@ li.slider {
 }
 
 .active {
-	color: $base-purple;
-	border-bottom: 2px solid $base-purple;
+	color: $color-secondary-blue;
+	border-bottom: 2px solid $color-secondary-blue;
+
+	svg {
+		fill: $color-secondary-blue;
+	}
 }
 
 /* --------------------------------
@@ -190,7 +198,13 @@ Navigation
 
 		&.selected, .no-touch &.selected:hover {
 			background-color: $color-white;
-			color: $rasin-black;
+			color: $color-secondary-blue;
+		}
+
+		&.selected {
+			svg {
+				fill: $color-secondary-blue;
+			}
 		}
 	}
 }
@@ -251,6 +265,12 @@ Navigation
 		&.selected, .no-touch &.selected:hover {
 			background-color: $color-white;
 			color: $rasin-black;
+		}
+
+		&.selected {
+			svg {
+				fill: $color-secondary-blue;
+			}
 		}
 	}
 }

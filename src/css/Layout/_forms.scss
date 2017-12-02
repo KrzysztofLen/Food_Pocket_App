@@ -4,6 +4,8 @@
 @import "../Themes/Theme.scss";
 @import "../Base/typography";
 
+//#TODO Styled form as in tutorial
+
 .main-form {
 	width: 90%;
 	max-width: $M; // breakpoints inside partials > _typography.scss
@@ -53,6 +55,7 @@
 			grid-template-columns: 1fr 70px 1fr;
 			display: grid;
 			grid-gap: 7px;
+			grid-template-rows: 76px;
 		}
 	}
 
@@ -69,15 +72,20 @@
 		}
 	}
 
+	&__input {
+		&--weight {
+			max-height: 50px;
+		}
+	}
+
 	&__input-container {
 		margin: 20px 0;
 	}
 
 }
 
-
 .has-danger {
-	input[type=text] {
+	input[type=text], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=url], select, textarea {
 		outline: none;
 		box-shadow: 0 0 5px rgba(232, 52, 59, 1);
 		margin: 5px 1px 3px 0px;
@@ -85,8 +93,94 @@
 	}
 }
 
-input, textarea, select, label {
-	//font-family: $primary-font;
-	font-size: 1.6rem;
-	color: $rasin-black;
+.main-form {
+	input[type="text"],
+	input[type="email"],
+	input[type="number"],
+	textarea,
+	select,
+	legend {
+		display: block;
+		width: 100%;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-ms-appearance: none;
+		-o-appearance: none;
+		appearance: none;
+	}
+
+	input, textarea, select, label {
+		//font-family: $primary-font;
+		font-size: 1.6rem;
+		color: $rasin-black;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="number"],
+	textarea,
+	select {
+		padding: 1.5rem;
+		border: 1px solid darken($color-light-blue, .1%);
+		background-color: $color-white;
+		border-radius: .25rem;
+		box-shadow: inset 0 1px 1px rgba($rasin-black, .08);
+		height: auto;
+
+
+		&:focus {
+			outline: none;
+			border-color: $color-primary-blue;
+			box-shadow: 0 0 5px rgba($color-primary-blue, .2);
+		}
+	}
+
+	&__select {
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: 1;
+			right: 16px;
+			top: 50%;
+			margin-top: -8px;
+			width: 16px;
+			height: 16px;
+
+			display: block;
+
+			background: url("../assets/icons/ic_expand_more_black_24dp_1x.png") no-repeat center center;
+			pointer-events: none;
+		}
+	}
+
+	select {
+		box-shadow: 0 1px 3px rgba($rasin-black, .08);
+		cursor: pointer;
+
+		&::-ms-expand {
+			display: none;
+		}
+	}
+}
+
+.main-form {
+	.icon input, .icon select, .icon textarea {
+		padding-left: 54px;
+	}
+
+	.product-name-input {
+		background: url('../assets/icons/basic_calculator.svg') no-repeat 16px center;
+	}
+}
+
+/* --------------------------------
+FLoating labels
+-------------------------------- */
+
+.js .floating-labels {
+	div {
+		margin: 28px 0;
+	}
 }

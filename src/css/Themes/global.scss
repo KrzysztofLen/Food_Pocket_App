@@ -1,6 +1,6 @@
 @import "../Abstracts/variables";
 @import "../Abstracts/mixins";
-//#TODO ADD 7-1 pattern, replace px into rem
+//#TODO  replace px into rem
 *,
 *:after,
 *:before {
@@ -24,6 +24,10 @@ h1 {
 	line-height: 1.5;
 }
 
+select {
+	background: none !important;
+}
+
 .full-overlay {
 	position: absolute;
 	z-index: 1;
@@ -41,5 +45,5 @@ h1 {
 }
 
 .column {
-	margin-left: 90px;
+	margin-left: 9rem;
 }

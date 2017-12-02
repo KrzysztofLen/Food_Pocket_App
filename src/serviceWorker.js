@@ -28,8 +28,14 @@ self.addEventListener('sync', event => {
 							},
 							body: JSON.stringify({
 								id: dt.id,
-								term: dt.term,
-								term1: dt.term1
+								main: {
+									productName: dt.productName,
+									productDesc: dt.productDesc,
+									productPrice: dt.productPrice,
+								},
+								additional: {
+									productType: dt.productType
+								}
 							})
 						})
 						.then(res => {

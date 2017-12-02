@@ -2,34 +2,50 @@
 	&__header {
 		background-image: linear-gradient(
 			to right bottom,
-				rgba(131, 176, 185, 0.81), rgba(52, 57, 67, 0.8)
+				rgba($color-primary-blue, .6), rgba($rasin-black , 0.8)
 		), url('../assets/img/brooke-lark-275181.jpg');
 		height: 55vh;
 		background-size: cover;
 		background-position: center;
-		clip-path: polygon(0 15%, 100% 0, 100% 47vh, 0 100%);
+		//clip-path: polygon(0 15%, 100% 0, 100% 47vh, 0 100%);
 		z-index: -1;
 		position: relative;
+		transform: skewY(-7deg);
+		box-shadow: 0 1.5rem 4rem rgba($rasin-black, .15);
 	}
 
 	&__text-box {
-		//position: absolute;
-		//top: 50%;
-		//left: 50%;
-		//transform: translate(-50%, -50%);
 		@include centered-vertical(50%, 50%);
 	}
 
 	&__heading-primary {
 		text-transform: uppercase;
 		color: $color-white;
+		width: 135%;
 	}
 
 	&__heading-main {
 		display: block;
 		font-size: 6rem;
 		font-weight: 900;
-		letter-spacing: 3.5rem;
+		letter-spacing: 0.5rem;
+
+		span {
+			font-size: 6rem;
+			color: $color-primary-blue;
+			@include font-size(10);
+			@include font-family('PeaceSans');
+			display: inline-block;
+			transform: translateY(25px);
+
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+
+		@include MQ(M) {
+			letter-spacing: 1.5rem;
+		}
 		//font-family: 'PeaceSans', sans-serif;
 	}
 

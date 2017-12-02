@@ -11,6 +11,7 @@ import './js/plugins';
 import './js/basic';
 import './js/dictionary';
 import './app';
+import './js/components/form';
 
 const chosen = new Chosen(
 	document.querySelector('body'),
@@ -22,7 +23,7 @@ console.log('%c Class: ', 'color: #F600C0', chosen);
 
 const tabMenu = new TabMenu(
 	document.querySelector('#tabs'),
-	document.querySelectorAll('.pl-mobile-dictionary__nav__menu__list__link'),
+	document.querySelectorAll('.mobile-nav__link'),
 	document.querySelectorAll('.c-tab'),
 );
 

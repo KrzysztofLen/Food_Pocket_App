@@ -2,17 +2,11 @@
 import anime from 'animejs';
 
 (function () {
-	const inputContainer = document.getElementsByClassName('main-form__input-container');
-	const input = document.getElementsByClassName('main-form__input');
 	const tabNav = document.getElementById('tabs-nav');
 	const sideNav = document.querySelector('.cd-side-navigation-left');
-	const submitButton = document.querySelector('#pl-mobile-dictionary__submit');
+
 	const tabContent = document.querySelectorAll('section');
 
-	const inputFirst = document.querySelector('#pl-mobile-dictionary__input-first'),
-		  inputSecond = document.querySelector('#pl-mobile-dictionary__input-second'),
-		  form = document.querySelector('form'),
-		  error = document.querySelector('.main-form__error-container');
 
     // Initialize Firebase
 	const config = {
@@ -24,92 +18,7 @@ import anime from 'animejs';
 		messagingSenderId: '634027372852'
 	};
 
-	function hideDangerMessage() {
-		error.classList.add('hide');
-	}
 
-	function showDangerMessage() {
-		error.classList.remove('hide');
-	}
-
-	submitButton.addEventListener('click', e => {
-		displayErrorMessage(e);
-	});
-
-	const keyPressed = e => {
-		if (e.code === 'Enter') {
-			displayErrorMessage(e);
-		}
-	};
-
-	function displayErrorMessage(event) {
-		const inputValue = inputFirst.value;
-		const regexp = new RegExp('^([a-z]{2,})$');
-
-		if ((inputValue === '') || (!regexp.test(inputValue))) {
-			showDangerMessage();
-			inputContainer[0].classList.add('has-danger');
-			input[0].classList.add('form-control-danger');
-			event.preventDefault();
-		} else {
-			console.log('[Message send]');
-		}
-	}
-
-	function updateUI() {
-		// Here will be code to update UI
-	}
-
-	function sendData() {
-		fetch('https://english-56ed3.firebaseio.com/english.json', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'Accept': 'application/json'
-			},
-			body: JSON.stringify({
-				id: new Date().toISOString(),
-				term: inputFirst.value,
-				term1: inputSecond.value
-			})
-		})
-			.then(res => {
-				console.log('[Send data]', res);
-				updateUI();
-			});
-	}
-
-	form.addEventListener('submit', event => {
-		event.preventDefault();
-		keyPressed;
-
-		if ('serviceWorker' in navigator && 'SyncManager' in window) {
-			navigator.serviceWorker.ready
-				.then(sw => {
-					// Object with value from Input's
-					const english = {
-						id: new Date().toISOString(),
-						term: inputFirst.value,
-						term1: inputSecond.value
-					};
-					// Save Data in IndexCB
-					writeData('sync-data', english)
-						.then(() => {
-							return sw.sync.register('sync-new-english');
-						})
-						.then(() => {
-							console.log('%c [From IndexDB]: Successfully saved data', 'color: #bada55');
-						})
-						.catch(err => {
-							console.log('%c [Error from IndexDB]: ', 'color: #FF0006', err);
-						});
-					form.reset();
-				});
-		} else {
-			// Without background-sync
-			sendData();
-		}
-	});
 
 	/**
 	 * @desc Hidden tab navigation
@@ -151,22 +60,21 @@ import anime from 'animejs';
 					_tabContent.classList.remove('column');
 				});
 			}
-		}
+		};
 
 		window.onload = function () {
 			animation();
 			resizeContent();
-		}
+		};
 
 		window.onresize = () => {
 			animation();
 			resizeContent();
 		}
-	}
+	};
 
 
 	hideTabNav();
 
-	hideDangerMessage();
 })();
 
