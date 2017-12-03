@@ -72,12 +72,6 @@
 		}
 	}
 
-	&__input {
-		&--weight {
-			max-height: 50px;
-		}
-	}
-
 	&__input-container {
 		margin: 20px 0;
 	}
@@ -110,7 +104,7 @@
 	}
 
 	input, textarea, select, label {
-		//font-family: $primary-font;
+		font-family: "Open Sans", sans-serif;
 		font-size: 1.6rem;
 		color: $rasin-black;
 	}
@@ -126,7 +120,6 @@
 		border-radius: .25rem;
 		box-shadow: inset 0 1px 1px rgba($rasin-black, .08);
 		height: auto;
-
 
 		&:focus {
 			outline: none;
@@ -166,12 +159,24 @@
 }
 
 .main-form {
-	.icon input, .icon select, .icon textarea {
+
+	.icon input, .icon select {
 		padding-left: 54px;
 	}
 
-	.product-name-input {
-		background: url('../assets/icons/basic_calculator.svg') no-repeat 16px center;
+	&__input {
+		&--weight {
+			max-height: 50px;
+			padding-left: 8px;
+		}
+	}
+
+	svg {
+		position: absolute;
+		/* margin-top: -13px; */
+		transform: translateY(50%);
+		margin-left: 13px;
+		fill: #ecf0f1;
 	}
 }
 
@@ -183,4 +188,8 @@ FLoating labels
 	div {
 		margin: 28px 0;
 	}
+}
+
+#type1 .main-form__input--weight {
+	padding-left: 8px;
 }
