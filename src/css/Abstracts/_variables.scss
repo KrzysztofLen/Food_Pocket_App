@@ -23,12 +23,17 @@ $color-light-gray: mix($base-grey, $color-white, $amount25);
 $color-medium-gray: mix($base-grey, $color-black, $amount50);
 $color-dark-gray: mix($base-grey, $color-black, $amount75);
 
-//$color-1: #83b0b9; // Neptune
-//$color-2: #d35657; // Chestnut Rose
-//$color-3: #343943; // Tuna
-//$color-4: #e4b162; // Equator
-//$color-5: #131519; // Woodsmoke
+// COLORS
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
 
-// Form
-//$color-label: #ecf0f1;
-//$color-input: #2b3e51;
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light: #777;
+$color-white: #FFF;
+$color-black: #000;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;

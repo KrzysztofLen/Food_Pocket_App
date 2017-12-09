@@ -1,6 +1,11 @@
 importScripts('/js/vendor/idb.js');
 importScripts('/js/utility.js');
 
+/*
+/* @desc
+REMEMBER TO SKIP ACTIVE SERVICE WORKER ###############################################
+ */
+
 self.addEventListener('install', event => {
 	console.log('%c [Service Worker]: Installing Service Worker ...', 'color: #bada55', event);
 });
@@ -31,10 +36,12 @@ self.addEventListener('sync', event => {
 								main: {
 									productName: dt.productName,
 									productDesc: dt.productDesc,
-									productPrice: dt.productPrice,
+									productPrice: dt.productPrice
 								},
 								additional: {
-									productType: dt.productType
+									productType: dt.productType,
+									productUnit: dt.productUnit,
+									productWeight: dt.productWeight
 								}
 							})
 						})

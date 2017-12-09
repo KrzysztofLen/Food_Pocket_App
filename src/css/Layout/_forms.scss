@@ -21,6 +21,12 @@
 		color: $color-light-blue;
 		margin-bottom: 10px;
 		display: block;
+
+		&--unit {
+			@include font-size(1.6);
+			color: $gray-dark;
+			font-weight: $font-400;
+		}
 	}
 
 	&__header-wrapper {
@@ -187,6 +193,27 @@ FLoating labels
 .js .floating-labels {
 	div {
 		margin: 28px 0;
+		position: relative;
+	}
+
+	.main-form__label {
+		position: absolute;
+		top: 13px;
+		left: 56px;
+		@include font-size(1.6);
+		cursor: text;
+		transition: top .2s, left .2s, font-size .2s;
+	}
+
+	.icon .main-form__label {
+		left: 56px;
+	}
+
+	.float {
+		/* move label out the input field */
+		font-size: 1.2rem;
+		top: -16px;
+		left: 0 !important;
 	}
 }
 

@@ -1,7 +1,7 @@
 const dictionary = document.querySelector('#pl-mobile-dictionary__dictionary-list');
 
 const createCard = (data) => {
-console.log(data);
+// console.log(data);
 	const cardWrapper = `<table>
   <thead>
     <tr>
