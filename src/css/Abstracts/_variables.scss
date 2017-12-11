@@ -19,6 +19,9 @@ $home-nav: #83b0b9;
 // 3 shades of grey
 $base-grey: #ccc;
 
+// FORM
+$label-gray: #94aab0;
+
 $color-light-gray: mix($base-grey, $color-white, $amount25);
 $color-medium-gray: mix($base-grey, $color-black, $amount50);
 $color-dark-gray: mix($base-grey, $color-black, $amount75);

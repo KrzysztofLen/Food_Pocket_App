@@ -4,8 +4,6 @@
 @import "../Themes/Theme.scss";
 @import "../Base/typography";
 
-//#TODO Styled form as in tutorial
-
 .main-form {
 	width: 90%;
 	max-width: $M; // breakpoints inside partials > _typography.scss
@@ -207,12 +205,15 @@ FLoating labels
 
 	.icon .main-form__label {
 		left: 56px;
+		color: $label-gray;
+		cursor: text;
+		@include font-weight($font-400);
 	}
 
 	.float {
 		/* move label out the input field */
 		font-size: 1.2rem;
-		top: -16px;
+		top: -25px;
 		left: 0 !important;
 	}
 }
