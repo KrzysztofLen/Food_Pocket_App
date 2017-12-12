@@ -67,7 +67,6 @@ class ProductCard {
 	}
 
 	updateUI(results) {
-		console.log('this is results', results);
 		for (let i = 0; i < results.length; i++) {
 			this.createCard(results[i]);
 		}
