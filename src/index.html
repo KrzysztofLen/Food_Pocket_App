@@ -160,30 +160,30 @@
 							<legend class="main-form__header">Main Info</legend>
 
 							<div class="main-form__input-container icon" id="test">
-								<label class="main-form__label" for="product-name">Product name</label>
 								<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 									<path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
 									<path d="M0 0h24v24H0z" fill="none"/>
 								</svg>
 								<input type="text" class="main-form__input product-name-input" name="product-name"
-									   id="product-name-input" required>
+									   id="product-name-input" placeholder="Product Name" required>
+								<label class="main-form__label" for="product-name-input">Product name</label>
 							</div>
 							<div class="main-form__input-container icon" id="test1">
-								<label class="main-form__label" for="product-description">Description</label>
 								<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 									<path d="M5 4v3h5.5v12h3V7H19V4z"/>
 									<path d="M0 0h24v24H0V0z" fill="none"/>
 								</svg>
 								<input type="text" class="main-form__input" name="product-description"
-									   id="product-description-input" required>
+									   id="product-description-input" placeholder="Product Description" required>
+								<label class="main-form__label" for="product-description-input">Description</label>
 							</div>
 							<div class="main-form__input-container icon" id="price">
-								<label class="main-form__label" for="product-price">Price</label>
 								<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 									<path d="M0 0h24v24H0z" fill="none"/>
 									<path d="M11 17h2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1h-3v-1h4V8h-2V7h-2v1h-1c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h3v1H9v2h2v1zm9-13H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4V6h16v12z"/>
 								</svg>
-								<input type="number" id="product-price-input" name="product-price" class="main-form__input main-form__input--price" required>
+								<input type="number" id="product-price-input" placeholder="Product Price" name="product-price" class="main-form__input main-form__input--price" required>
+								<label class="main-form__label" for="product-price-input">Price</label>
 							</div>
 						</fieldset>
 
@@ -198,8 +198,9 @@
 								</svg>
 								<p class="main-form__select">
 									<select name="type" id="product-type" class="main-form__input main-form__input--type">
+										<option value="" disabled selected>Select your option</option>
 										<optgroup label="Fruits & Vegetables">
-											<option value="Fruits" selected="selected">Fruits</option>
+											<option value="Fruits">Fruits</option>
 											<option value="Vegetables">Vegetables</option>
 										</optgroup>
 										<optgroup label="Meat">
@@ -232,12 +233,11 @@
 
 							</div>
 							<div class="main-form__input-container weight-container icon" id="type1">
-								<label class="main-form__label--unit" for="cd-name">Unit</label>
-
-								<input type="number" id="product-weight" class="main-form__input main-form__input--weight">
+								<label class="main-form__label--unit" for="product-weight">Unit</label>
+								<input type="number" id="product-weight" placeholder="1" class="main-form__input main-form__input--weight">
 
 								<p class="main-form__select">
-									<select id="product-unit" class="main-form__unit">
+									<select id="product-unit" class="main-form__input--unit">
 										<option value="kg">Kg</option>
 										<option value="g">g</option>
 										<option value="ml">ml</option>
