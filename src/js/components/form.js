@@ -16,29 +16,6 @@ const productUnit = document.querySelector('#product-unit');
 const productWeight = document.querySelector('#product-weight');
 const select = document.querySelectorAll('select');
 
-// select.forEach(_select => {
-// 	_select.addEventListener('change', function () {
-// 			onChange();
-// 			// console.log(product);
-// 		});
-// });
-//
-//
-// const product = {
-// 	id: new Date().toISOString(),
-// 	productName: productName.value,
-// 	productDesc: productDescription.value,
-// 	productPrice: productPrice.value,
-// 	productWeight: productWeight.value,
-// 	productUnit: productUnit.value
-// };
-//
-// function onChange() {
-// 	let productTypeValue = productType.options[productType.selectedIndex].value;
-// 	let productUnitValue = productUnit.options[productUnit.selectedIndex].value;
-// 	product.productType = productTypeValue;
-// 	product.productUnit = productUnitValue;
-// }
 
 function floatLabels() {
 	const inputField = document.querySelectorAll('.main-form__input');
@@ -49,11 +26,8 @@ function floatLabels() {
 }
 
 var onChange = function checkVal(inputField) {
-	console.info(this.value);
-	console.info(inputField.value);
 
 	const labels = document.querySelectorAll('.main-form__label');
-console.log(labels);
 	labels.forEach(_labels => {
 		// _labels.classList.add('float');
 		( this.value === '' ) ? _labels.classList.remove('float') : _labels.classList.add('float');

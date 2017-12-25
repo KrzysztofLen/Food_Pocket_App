@@ -1,0 +1,238 @@
+.cd-add-to-cart {
+	display: inline-block;
+	padding: 1.2em 1.8em;
+	background: $color-tertiary-light;
+	border-radius: 50em;
+	text-transform: uppercase;
+	color: $color-grey-light-1;
+	font-weight: 700;
+	letter-spacing: .1em;
+	box-shadow: 0 2px 10px rgba(#000, .2);
+	transition: all .2s;
+
+	&:hover {
+		background: lighten($color-grey-light-1, 5%);
+	}
+
+	&:active {
+		transform: scale(.9);
+	}
+}
+
+/* --------------------------------
+
+Main Components
+
+-------------------------------- */
+
+.cd-cart-container::before {
+	/* dark bg layer visible when the cart is open */
+	content: '';
+	position: fixed;
+	z-index: 1;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	background: rgba(#000, .5);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .4s, visibility .4s;
+}
+
+.cd-cart-container.cart-open::before {
+	opacity: 1;
+	visibility: visible;
+}
+
+.cd-cart-trigger,
+.cd-cart {
+	position: fixed;
+	bottom: 20px;
+	right: 5%;
+	transition: transform .2s;
+	/* Force Hardware Acceleration in WebKit */
+	transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
+	will-change: transform;
+	backface-visibility: hidden;
+
+	.empty & {
+		/* hide cart */
+		transform: translateY(150px);
+	}
+
+	@include MQ(L) {
+		bottom: 40px;
+	}
+}
+
+.cd-cart-trigger {
+	/* button that triggers the cart content */
+	z-index: 3;
+	height: 72px;
+	width: 72px;
+	/* replace text with image */
+	text-indent: 100%;
+	color: transparent;
+	white-space: nowrap;
+
+	&::after,
+	&::before {
+		/* used to create the cart/'X' icon */
+		content: '';
+		position: absolute;
+		@include center;
+		height: 100%;
+		width: 100%;
+		background: url(../assets/icons/ic_close_black_24dp_2x.png) no-repeat 0 0;
+	}
+
+	&::after {
+		/* 'X' icon */
+		background-position: 11px 11px;
+		opacity: 0;
+		transform: translateX(-50%) translateY(-50%) rotate(90deg);
+	}
+
+	.cart-open &::before {
+		opacity: 0;
+	}
+
+	.cart-open &::after {
+		opacity: 1;
+		transform: translateX(-50%) translateY(-50%);
+	}
+}
+
+.cd-cart {
+	/* cart content */
+	z-index: 2;
+	width: 90%;
+	max-width: 440px;
+	height: 400px;
+	max-height: 90%;
+	pointer-events: none;
+
+	.wrapper {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		z-index: 2;
+		overflow: hidden;
+		height: 72px;
+		width: 72px;
+		border-radius: 6px;
+		transition: height .4s .1s, width .4s .1s, box-shadow .3s;
+		transition-timing-function: cubic-bezier(.67, .17, .32, .95);
+		background: $color-white;
+		box-shadow: 0 4px 30px rgba(#000, .17);
+		pointer-events: auto;
+	}
+	.cart-open & .wrapper {
+		height: 100%;
+		width: 100%;
+		transition-delay: 0s;
+	}
+
+	&__header,
+	&__footer {
+		position: absolute;
+		z-index: 2;
+		left: 0;
+		width: 100%;
+	}
+
+	&__header {
+		top: 0;
+		border-radius: 6px 6px 0 0;
+		padding: 0 1.4rem;
+		height: 40px;
+		line-height: 40px;
+		background-color: white;
+		transition: opacity .2s 0s;
+		border-bottom: 1px solid #ecf0f1;
+		@include clearfix;
+	}
+
+	&__footer {
+		bottom: 0;
+		border-radius: 6px 6px 0 0;
+		box-shadow: 0 -2px 20px rgba(#000, .15);
+		background: white;
+	}
+
+	&__title {
+		text-transform: uppercase;
+		display: inline-block;
+		font-size: 1.4rem;
+		font-weight: 700;
+		letter-spacing: .1em;
+	}
+
+	&__undo {
+		float: right;
+		@include font-size(1.2);
+		opacity: 0;
+		visibility: hidden;
+		transition: opactiy .2s, visibility .2s;
+		color: $gray-dark;
+
+		&--link {
+			text-decoration: underline;
+			color: $color-tertiary-dark;
+
+			&:hover {
+				color: $color-tertiary-light;
+			}
+		}
+
+		&.visible {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	.checkout {
+		display: block;
+		height: 72px;
+		line-height: 72px;
+		margin-right: 72px;
+		color: $color-white;
+		background: darken($color-tertiary-light, 20%);
+		text-align: center;
+		@include font-size(1.8);
+		font-weight: 600;
+		transition: all .2s 0s;
+
+		&:hover {
+			background: darken($color-tertiary-light, 3%);
+		}
+
+		em {
+			position: relative;
+			display: inline-block;
+			//transform: translateX(40px);
+			transition: transform 0s .2s;;
+		}
+	}
+
+	.body {
+		position: relative;
+		z-index: 1;
+		height: calc(100% - 40px);
+		padding: 20px 0 10px;
+		margin: 40px 0 10px;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		transition: opacity .2s;
+
+		&__list {
+			overflow: hidden;
+			padding: 0 1.4em;
+			position: relative;
+			padding-bottom: 90px;
+		}
+	}
+}
+
