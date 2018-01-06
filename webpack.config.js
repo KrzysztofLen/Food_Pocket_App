@@ -83,7 +83,7 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.(eot|ttf|otf|woff|woff2)$/,
+				test: /\.(svg|eot|ttf|otf|woff|woff2)$/,
 				loader: 'file-loader',
 				options: {
 					name: 'fonts/[name].[ext]',
@@ -112,5 +112,6 @@ module.exports = {
 		historyApiFallback: true,
 		inline: true,
 		open: true
-	}
+	},
+	devtool: 'cheap-module-eval-source-map'
 };

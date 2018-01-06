@@ -24,7 +24,7 @@
 		border-radius: 2px;
 		background-color: rgba($color-white, .5);
 		border: none;
-		outline: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
 		width: 90%;
 		display: block;
 		transition: all .3s;
@@ -75,6 +75,17 @@
 		margin-top: .7rem;
 		display: block;
 		transition: all .3s;
+
+		&--unit {
+			padding-bottom: 10px;
+			margin-bottom: 20px;
+			@include font-size(1.5);
+			display: block;
+			width: 100%;
+			font-weight: $font-400;
+			-webkit-appearance: none;
+			@include font-family('Open Sans');
+		}
 	}
 
 	&__input:placeholder-shown + &__label {
@@ -93,12 +104,14 @@
 			box-sizing: content-box;
 			padding: 1.5rem 0 1.5rem 54px;
 			height: auto;
+			cursor: pointer;
 		}
 
 		&--weight {
 			max-height: 50px;
 			box-sizing: content-box;
 			padding: 0!important;
+			text-align: center;
 		}
 
 		&--unit {
